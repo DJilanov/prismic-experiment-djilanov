@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | CustomerLogosSlice
   | HeroSlice
   | QuoteSlice
   | TextSlice
@@ -646,6 +647,31 @@ export interface CustomerLogosSliceDefaultPrimaryLogosItem {
 }
 
 /**
+ * Item in *CustomerLogos → Custom Logos → Primary → logos*
+ */
+export interface CustomerLogosSliceCustomLogosPrimaryLogosItem {
+  /**
+   * image field in *CustomerLogos → Custom Logos → Primary → logos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_logos.customLogos.primary.logos[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * link field in *CustomerLogos → Custom Logos → Primary → logos*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_logos.customLogos.primary.logos[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+}
+
+/**
  * Primary content in *CustomerLogos → Default → Primary*
  */
 export interface CustomerLogosSliceDefaultPrimary {
@@ -706,9 +732,71 @@ export type CustomerLogosSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *CustomerLogos → Custom Logos → Primary*
+ */
+export interface CustomerLogosSliceCustomLogosPrimary {
+  /**
+   * eyebrowHeadline field in *CustomerLogos → Custom Logos → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_logos.customLogos.primary.eyebrowHeadline
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  eyebrowHeadline: prismic.RichTextField;
+
+  /**
+   * callToActionLabel field in *CustomerLogos → Custom Logos → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_logos.customLogos.primary.callToActionLabel
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  callToActionLabel: prismic.KeyTextField;
+
+  /**
+   * callToActionLink field in *CustomerLogos → Custom Logos → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_logos.customLogos.primary.callToActionLink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  callToActionLink: prismic.LinkField;
+
+  /**
+   * logos field in *CustomerLogos → Custom Logos → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: customer_logos.customLogos.primary.logos[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  logos: prismic.GroupField<
+    Simplify<CustomerLogosSliceCustomLogosPrimaryLogosItem>
+  >;
+}
+
+/**
+ * Custom Logos variation for CustomerLogos Slice
+ *
+ * - **API ID**: `customLogos`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CustomerLogosSliceCustomLogos = prismic.SharedSliceVariation<
+  "customLogos",
+  Simplify<CustomerLogosSliceCustomLogosPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *CustomerLogos*
  */
-type CustomerLogosSliceVariation = CustomerLogosSliceDefault;
+type CustomerLogosSliceVariation =
+  | CustomerLogosSliceDefault
+  | CustomerLogosSliceCustomLogos;
 
 /**
  * CustomerLogos Shared Slice
@@ -1251,8 +1339,11 @@ declare module "@prismicio/client" {
       CustomerLogosSlice,
       CustomerLogosSliceDefaultPrimaryLogosItem,
       CustomerLogosSliceDefaultPrimary,
+      CustomerLogosSliceCustomLogosPrimaryLogosItem,
+      CustomerLogosSliceCustomLogosPrimary,
       CustomerLogosSliceVariation,
       CustomerLogosSliceDefault,
+      CustomerLogosSliceCustomLogos,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
