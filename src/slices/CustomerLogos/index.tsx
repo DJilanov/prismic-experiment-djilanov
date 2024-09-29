@@ -37,12 +37,6 @@ const CustomerLogos = ({ slice }: CustomerLogosProps): JSX.Element => {
             )}
           </ul>
         )}
-        <PrismicNextLink
-          field={slice.primary.callToActionLink}
-          className="es-customer-logos__button"
-        >
-          {slice.primary.callToActionLabel || "Learn more..."}
-        </PrismicNextLink>
       </div>
 
       <style>
