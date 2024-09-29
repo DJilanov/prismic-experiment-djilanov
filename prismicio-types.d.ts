@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TextWithImageInversedSlice
   | CustomerLogosSlice
   | HeroSlice
   | QuoteSlice
@@ -1251,51 +1252,11 @@ export type TextWithImageSliceWithButton = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *TextWithImage → TextWithImageInversed → Primary*
- */
-export interface TextWithImageSliceTextWithImageInversedPrimary {
-  /**
-   * Image field in *TextWithImage → TextWithImageInversed → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.textWithImageInversed.primary.image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * hello there field in *TextWithImage → TextWithImageInversed → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: asd
-   * - **API ID Path**: text_with_image.textWithImageInversed.primary.text
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-}
-
-/**
- * TextWithImageInversed variation for TextWithImage Slice
- *
- * - **API ID**: `textWithImageInversed`
- * - **Description**: TextWithImage
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type TextWithImageSliceTextWithImageInversed =
-  prismic.SharedSliceVariation<
-    "textWithImageInversed",
-    Simplify<TextWithImageSliceTextWithImageInversedPrimary>,
-    never
-  >;
-
-/**
  * Slice variation for *TextWithImage*
  */
 type TextWithImageSliceVariation =
   | TextWithImageSliceDefault
-  | TextWithImageSliceWithButton
-  | TextWithImageSliceTextWithImageInversed;
+  | TextWithImageSliceWithButton;
 
 /**
  * TextWithImage Shared Slice
@@ -1307,6 +1268,121 @@ type TextWithImageSliceVariation =
 export type TextWithImageSlice = prismic.SharedSlice<
   "text_with_image",
   TextWithImageSliceVariation
+>;
+
+/**
+ * Primary content in *TextWithImageInversed → Default → Primary*
+ */
+export interface TextWithImageInversedSliceDefaultPrimary {
+  /**
+   * hello there field in *TextWithImageInversed → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: asd
+   * - **API ID Path**: text_with_image_inversed.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Image field in *TextWithImageInversed → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image_inversed.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for TextWithImageInversed Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: TextWithImageInversed
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextWithImageInversedSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextWithImageInversedSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *TextWithImageInversed → With Button → Primary*
+ */
+export interface TextWithImageInversedSliceWithButtonPrimary {
+  /**
+   * Text field in *TextWithImageInversed → With Button → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image_inversed.withButton.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Button Link field in *TextWithImageInversed → With Button → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image_inversed.withButton.primary.buttonLink
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  buttonLink: prismic.LinkField;
+
+  /**
+   * Button Text field in *TextWithImageInversed → With Button → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image_inversed.withButton.primary.buttonText
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  buttonText: prismic.KeyTextField;
+
+  /**
+   * Image field in *TextWithImageInversed → With Button → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image_inversed.withButton.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * With Button variation for TextWithImageInversed Slice
+ *
+ * - **API ID**: `withButton`
+ * - **Description**: TextWithImageInversed
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextWithImageInversedSliceWithButton = prismic.SharedSliceVariation<
+  "withButton",
+  Simplify<TextWithImageInversedSliceWithButtonPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TextWithImageInversed*
+ */
+type TextWithImageInversedSliceVariation =
+  | TextWithImageInversedSliceDefault
+  | TextWithImageInversedSliceWithButton;
+
+/**
+ * TextWithImageInversed Shared Slice
+ *
+ * - **API ID**: `text_with_image_inversed`
+ * - **Description**: TextWithImageInversed
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextWithImageInversedSlice = prismic.SharedSlice<
+  "text_with_image_inversed",
+  TextWithImageInversedSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -1392,11 +1468,15 @@ declare module "@prismicio/client" {
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceWithButtonPrimary,
-      TextWithImageSliceTextWithImageInversedPrimary,
       TextWithImageSliceVariation,
       TextWithImageSliceDefault,
       TextWithImageSliceWithButton,
-      TextWithImageSliceTextWithImageInversed,
+      TextWithImageInversedSlice,
+      TextWithImageInversedSliceDefaultPrimary,
+      TextWithImageInversedSliceWithButtonPrimary,
+      TextWithImageInversedSliceVariation,
+      TextWithImageInversedSliceDefault,
+      TextWithImageInversedSliceWithButton,
     };
   }
 }

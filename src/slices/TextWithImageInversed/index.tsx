@@ -5,7 +5,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { Bounded } from "@/components/Bounded";
 import { PrismicRichText } from "@/components/PrismicRichText";
 
-type TextWithImageInversedProps = SliceComponentProps<Content.TextWithImageSlice>;
+type TextWithImageInversedProps = SliceComponentProps<any>;
 
 const TextWithImageInversed = ({ slice }: TextWithImageInversedProps) => {
   const image = slice.primary.image;
@@ -18,13 +18,14 @@ const TextWithImageInversed = ({ slice }: TextWithImageInversedProps) => {
             <div className="bg-gray-100">
               <PrismicNextImage
                 field={image}
-                sizes="100vw"
+                sizes="200px"
                 className="w-full"
               />
             </div>
           )}
         </div>
         <div>
+          <PrismicRichText field={slice.primary.header} />
           <PrismicRichText field={slice.primary.text} />
           {slice.variation === "withButton" && slice.primary.buttonLink ? (
             <PrismicNextLink
