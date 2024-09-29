@@ -14,8 +14,8 @@
         "text": {
           "type": "StructuredText",
           "config": {
-            "label": "Text",
-            "placeholder": "",
+            "label": "hello there",
+            "placeholder": "asd",
             "allowTargetBlank": true,
             "multi": "paragraph,heading1,heading2,heading3,strong,em,hyperlink,list-item,o-list-item"
           }

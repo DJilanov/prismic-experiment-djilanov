@@ -1,12 +1,20 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { asText } from "@prismicio/client";
 import { SliceZone } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
 type Params = { uid: string };
+
+export default async function Page({ params }: { params: Params }) {
+  const client = createClient();
+  const page = await client
+    .getByUID("project", params.uid)
+    .catch(() => notFound());
+
+  return <SliceZone slices={page.data.slices} components={components} />;
+}
 
 export async function generateMetadata({
   params,
@@ -15,32 +23,18 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const client = createClient();
   const page = await client
-    .getByUID("page", params.uid)
+    .getByUID("project", params.uid)
     .catch(() => notFound());
 
   return {
-    title: asText(page.data.title),
+    title: page.data.meta_title,
     description: page.data.meta_description,
-    openGraph: {
-      title: page.data.meta_title ?? undefined,
-      images: [{ url: page.data.meta_image.url ?? "" }],
-    },
   };
-}
-
-export default async function Page({ params }: { params: Params }) {
-  const client = createClient();
-  const page = await client
-    .getByUID("page", params.uid)
-    .catch(() => notFound());
-
-  return <SliceZone slices={page.data.slices} components={components} />;
 }
 
 export async function generateStaticParams() {
   const client = createClient();
-
-  const pages = await client.getAllByType("page");
+  const pages = await client.getAllByType("project");
 
   return pages.map((page) => {
     return { uid: page.uid };
