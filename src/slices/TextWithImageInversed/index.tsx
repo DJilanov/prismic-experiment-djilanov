@@ -5,9 +5,9 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { Bounded } from "@/components/Bounded";
 import { PrismicRichText } from "@/components/PrismicRichText";
 
-type TextWithImageProps = SliceComponentProps<Content.TextWithImageSlice>;
+type TextWithImageInversedProps = SliceComponentProps<Content.TextWithImageSlice>;
 
-const TextWithImage = ({ slice }: TextWithImageProps) => {
+const TextWithImageInversed = ({ slice }: TextWithImageInversedProps) => {
   const image = slice.primary.image;
 
   return (
@@ -40,4 +40,4 @@ const TextWithImage = ({ slice }: TextWithImageProps) => {
   );
 };
 
-export default TextWithImage;
+export default TextWithImageInversed;
