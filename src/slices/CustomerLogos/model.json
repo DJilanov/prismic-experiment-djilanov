@@ -21,21 +21,6 @@
             "single": "strong,em,rtl,heading2"
           }
         },
-        "callToActionLabel": {
-          "type": "Text",
-          "config": {
-            "label": "callToActionLabel",
-            "placeholder": ""
-          }
-        },
-        "callToActionLink": {
-          "type": "Link",
-          "config": {
-            "label": "callToActionLink",
-            "placeholder": "",
-            "select": null
-          }
-        },
         "logos": {
           "type": "Group",
           "config": {

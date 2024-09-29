@@ -686,26 +686,6 @@ export interface CustomerLogosSliceDefaultPrimary {
   eyebrowHeadline: prismic.RichTextField;
 
   /**
-   * callToActionLabel field in *CustomerLogos → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.default.primary.callToActionLabel
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  callToActionLabel: prismic.KeyTextField;
-
-  /**
-   * callToActionLink field in *CustomerLogos → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.default.primary.callToActionLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  callToActionLink: prismic.LinkField;
-
-  /**
    * logos field in *CustomerLogos → Default → Primary*
    *
    * - **Field Type**: Group
@@ -1271,11 +1251,51 @@ export type TextWithImageSliceWithButton = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *TextWithImage → TextWithImageInversed → Primary*
+ */
+export interface TextWithImageSliceTextWithImageInversedPrimary {
+  /**
+   * Image field in *TextWithImage → TextWithImageInversed → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.textWithImageInversed.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * hello there field in *TextWithImage → TextWithImageInversed → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: asd
+   * - **API ID Path**: text_with_image.textWithImageInversed.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * TextWithImageInversed variation for TextWithImage Slice
+ *
+ * - **API ID**: `textWithImageInversed`
+ * - **Description**: TextWithImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TextWithImageSliceTextWithImageInversed =
+  prismic.SharedSliceVariation<
+    "textWithImageInversed",
+    Simplify<TextWithImageSliceTextWithImageInversedPrimary>,
+    never
+  >;
+
+/**
  * Slice variation for *TextWithImage*
  */
 type TextWithImageSliceVariation =
   | TextWithImageSliceDefault
-  | TextWithImageSliceWithButton;
+  | TextWithImageSliceWithButton
+  | TextWithImageSliceTextWithImageInversed;
 
 /**
  * TextWithImage Shared Slice
@@ -1372,9 +1392,11 @@ declare module "@prismicio/client" {
       TextWithImageSlice,
       TextWithImageSliceDefaultPrimary,
       TextWithImageSliceWithButtonPrimary,
+      TextWithImageSliceTextWithImageInversedPrimary,
       TextWithImageSliceVariation,
       TextWithImageSliceDefault,
       TextWithImageSliceWithButton,
+      TextWithImageSliceTextWithImageInversed,
     };
   }
 }

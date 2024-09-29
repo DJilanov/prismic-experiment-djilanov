@@ -3,19 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"callToActionLabel": {
-				"__TYPE__": "FieldContent",
-				"type": "Text",
-				"value": "View customer stories"
-			},
-			"callToActionLink": {
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "https://prismic.io",
-					"target": "_blank"
-				}
-			},
 			"eyebrowHeadline": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
