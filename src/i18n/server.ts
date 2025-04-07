@@ -12,7 +12,7 @@ const initServerI18next = async (language: string, ns: string) => {
   const i18nInstance = createInstance();
   await i18nInstance
     .use(initReactI18next)
-    .use(resourcesToBackend((language: string, ns: string) => import(`./locales/${language}/translation.json`)))
+    .use(resourcesToBackend((language: string, ns: string) => import(`./locales/${language}/${ns}.json`)))
     .init(getOptions(language, ns));
   return i18nInstance;
 };
@@ -22,8 +22,8 @@ acceptLanguage.languages(languages);
 const cookieName = "i18next";
 
 export async function detectLanguage() {
-  const cookies = await getCookies();
-  const headers = await getHeaders();
+  const cookies = getCookies();
+  const headers = getHeaders();
 
   // here we can read the session data
   // const session = await getSession();
@@ -32,9 +32,9 @@ export async function detectLanguage() {
   if (!language && cookies.has(cookieName)) {
     language = acceptLanguage.get(cookies.get(cookieName)?.value);
   }
-  // if (!language) {
-  //   language = acceptLanguage.get(headers.get("Accept-Language"));
-  // }
+  if (!language) {
+    language = acceptLanguage.get(headers.get("Accept-Language"));
+  }
   if (!language) {
     language = fallbackLng;
   }
@@ -48,5 +48,6 @@ export const getServerTranslations = cache(async (ns: string, options: any = {})
     t: i18nextInstance.getFixedT(language, Array.isArray(ns) ? ns[0] : ns, options.keyPrefix),
     i18n: i18nextInstance,
     language,
+    translations: i18nextInstance.store.data[language].translation
   };
 });

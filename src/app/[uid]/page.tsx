@@ -5,7 +5,6 @@ import * as prismic from '@prismicio/client';
 import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 import { getLocales } from '@/utils/getLocales';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 type Params = { uid: string; lang: string };
 
@@ -45,7 +44,6 @@ export default async function Page({ params }: { params: Params }) {
 
   return (
     <>
-      <LanguageSwitcher locales={locales} />
       <SliceZone slices={page.data.slices} components={components} />
     </>
   );

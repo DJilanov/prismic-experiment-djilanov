@@ -14,6 +14,16 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "6.6.0",
+    "@fortawesome/pro-regular-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@glidejs/glide": "3.6.2",
+    "socialbee-ui": "0.1.8",
+    "flowbite-react": "^0.10.1",
+    "sonner": "2.0.3",
+    "react-gtm-module": "2.0.11",
+    "react-microsoft-clarity": "2.0.0",
     "accept-language": "3.0.20",
     "i18next": "24.2.3",
     "i18next-resources-to-backend": "1.2.1",
@@ -42,6 +52,8 @@
     "prettier-plugin-tailwindcss": "^0.6.5",
     "slice-machine-ui": "^2.7.1",
     "tailwindcss": "^3.4.4",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.2",
+    "@types/react-gtm-module": "2.0.4",
+    "@types/glidejs__glide": "3.6.6"
   }
 }
