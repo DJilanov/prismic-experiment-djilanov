@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/en',
+        destination: '/en-us',
         permanent: false, // Set to true if this is a permanent redirect (301)
       },
     ];

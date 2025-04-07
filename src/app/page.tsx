@@ -4,7 +4,7 @@ import * as prismic from '@prismicio/client';
 import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 import { getLocales } from '@/utils/getLocales';
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata({
   params: { lang },
@@ -12,7 +12,14 @@ export async function generateMetadata({
   params: { lang: string };
 }): Promise<Metadata> {
   const client = createClient();
-  const home = await client.getByUID('page', 'home', { lang });
+  const pages = await client.getAllByType("page", {
+    orderings: {
+      field: "document.first_publication_date",
+      direction: "desc",
+    },
+    lang: "en-us",
+  });
+  const home = await client.getByUID('page', 'home', { lang }).catch(() => notFound());
 
   return {
     title: prismic.asText(home.data.title),
@@ -41,7 +48,6 @@ export default async function Index({
 
   return (
     <>
-      <LanguageSwitcher locales={locales} />
       <SliceZone slices={home.data.slices} components={components} />
     </>
   );

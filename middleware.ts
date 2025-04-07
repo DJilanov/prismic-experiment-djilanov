@@ -11,21 +11,22 @@ export async function middleware(request: NextRequest) {
   const repository = await client.getRepository();
 
   const locales = repository.languages.map((lang) => lang.id);
+  console.log('--locales: ', locales);
   const defaultLocale = locales[0];
 
   // Check if there is any supported locale in the pathname
-  const { pathname } = request.nextUrl;
+  // const { pathname } = request.nextUrl;
 
-  const pathnameIsMissingLocale = locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  );
+  // const pathnameIsMissingLocale = locales.every(
+  //   (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  // );
 
-  // Redirect to default locale if there is no supported locale prefix
-  if (pathnameIsMissingLocale) {
-    return NextResponse.rewrite(
-      new URL(`/${defaultLocale}${pathname}`, request.url)
-    );
-  }
+  // // Redirect to default locale if there is no supported locale prefix
+  // if (pathnameIsMissingLocale) {
+  //   return NextResponse.rewrite(
+  //     new URL(`/${defaultLocale}${pathname}`, request.url)
+  //   );
+  // }
 }
 
 export const config = {

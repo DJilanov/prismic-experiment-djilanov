@@ -14,11 +14,16 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "accept-language": "3.0.20",
+    "i18next": "24.2.3",
+    "i18next-resources-to-backend": "1.2.1",
+    "react-i18next": "15.4.1",
     "@prismicio/client": "^7.11.0",
     "@prismicio/next": "^1.7.0",
     "@prismicio/react": "^2.9.0",
     "clsx": "^2.1.1",
     "next": "^14.2.4",
+    "flowbite": "3.1.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
