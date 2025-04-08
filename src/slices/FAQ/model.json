@@ -47,16 +47,39 @@
         }
       },
       "items": {
-        "question_slice": {
-          "type": "Slice",
-          "fieldset": "Question",
+        "question": {
+          "type": "StructuredText",
           "config": {
-            "choices": {
-              "question": {
-                "type": "Slice",
-                "fieldset": "Question"
-              }
-            }
+            "label": "Question",
+            "placeholder": "FAQ question text",
+            "allowTargetBlank": true,
+            "multi": "heading5"
+          }
+        },
+        "question_mobile": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Question (Mobile)",
+            "placeholder": "FAQ question text for mobile",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "answer": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Answer",
+            "placeholder": "FAQ answer text",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "start_open": {
+          "type": "Boolean",
+          "config": {
+            "label": "Start Open",
+            "placeholder": "Should this question be expanded by default",
+            "default_value": false
           }
         }
       }
