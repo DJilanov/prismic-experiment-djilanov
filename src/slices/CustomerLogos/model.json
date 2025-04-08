@@ -1,111 +1,58 @@
 {
-  "id": "customer_logos",
+  "id": "company_carousel",
   "type": "SharedSlice",
-  "name": "CustomerLogos",
-  "description": "CustomerLogos",
+  "name": "CompanyCarousel",
+  "description": "A carousel displaying company logos",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "initial",
-      "description": "Default",
+      "description": "Default company carousel",
       "imageUrl": "",
       "primary": {
-        "eyebrowHeadline": {
+        "title": {
           "type": "StructuredText",
           "config": {
-            "label": "eyebrowHeadline",
-            "placeholder": "",
+            "label": "Title",
+            "placeholder": "Carousel section title (rich text)",
             "allowTargetBlank": true,
-            "single": "strong,em,rtl,heading2"
+            "multi": "heading2"
           }
         },
-        "logos": {
-          "type": "Group",
-          "config": {
-            "label": "logos",
-            "fields": {
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              },
-              "link": {
-                "type": "Link",
-                "config": {
-                  "label": "link",
-                  "placeholder": "",
-                  "select": null
-                }
-              }
-            }
-          }
-        }
-      },
-      "items": {}
-    },
-    {
-      "id": "customLogos",
-      "name": "Custom Logos",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": "",
-      "primary": {
-        "eyebrowHeadline": {
-          "type": "StructuredText",
-          "config": {
-            "label": "eyebrowHeadline",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "single": "strong,em,rtl,heading2"
-          }
-        },
-        "callToActionLabel": {
+        "title_text": {
           "type": "Text",
           "config": {
-            "label": "callToActionLabel",
-            "placeholder": ""
+            "label": "Title Text",
+            "placeholder": "Plain text title (if needed for component props)"
           }
         },
-        "callToActionLink": {
-          "type": "Link",
+        "class_string": {
+          "type": "Text",
           "config": {
-            "label": "callToActionLink",
-            "placeholder": "",
-            "select": null
-          }
-        },
-        "logos": {
-          "type": "Group",
-          "config": {
-            "label": "logos",
-            "fields": {
-              "image": {
-                "type": "Image",
-                "config": {
-                  "label": "image",
-                  "constraint": {},
-                  "thumbnails": []
-                }
-              },
-              "link": {
-                "type": "Link",
-                "config": {
-                  "label": "link",
-                  "placeholder": "",
-                  "select": null
-                }
-              }
-            }
+            "label": "CSS Class String",
+            "placeholder": "Optional CSS classes to apply"
           }
         }
       },
-      "items": {}
+      "items": {
+        "company_logo": {
+          "type": "Image",
+          "config": {
+            "label": "Company Logo",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "company_name": {
+          "type": "Text",
+          "config": {
+            "label": "Company Name",
+            "placeholder": "Name of the company (used as alt text)"
+          }
+        }
+      }
     }
   ]
 }

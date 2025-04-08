@@ -26,7 +26,7 @@ export interface NavigationDocumentDataLinksItem {
    * - **API ID Path**: navigation.links[].link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  link: prismic.LinkField;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**
@@ -63,7 +63,6 @@ export type NavigationDocument<Lang extends string = string> =
 
 type PageDocumentDataSlicesSlice =
   | TextWithImageInversedSlice
-  | CustomerLogosSlice
   | HeroSlice
   | QuoteSlice
   | TextSlice
@@ -509,7 +508,13 @@ export interface CallToActionSliceDefaultPrimary {
    * - **API ID Path**: call_to_action.default.primary.buttonLink
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  buttonLink: prismic.LinkField;
+  buttonLink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 
   /**
    * buttonLabel field in *CallToAction → Default → Primary*
@@ -577,7 +582,13 @@ export interface CallToActionSliceAlignLeftPrimary {
    * - **API ID Path**: call_to_action.alignLeft.primary.buttonLink
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  buttonLink: prismic.LinkField;
+  buttonLink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 
   /**
    * buttonLabel field in *CallToAction → AlignLeft → Primary*
@@ -623,172 +634,93 @@ export type CallToActionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *CustomerLogos → Default → Primary → logos*
+ * Primary content in *CompanyCarousel → Default → Primary*
  */
-export interface CustomerLogosSliceDefaultPrimaryLogosItem {
+export interface CompanyCarouselSliceDefaultPrimary {
   /**
-   * image field in *CustomerLogos → Default → Primary → logos*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.default.primary.logos[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * link field in *CustomerLogos → Default → Primary → logos*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.default.primary.logos[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
-
-/**
- * Item in *CustomerLogos → Custom Logos → Primary → logos*
- */
-export interface CustomerLogosSliceCustomLogosPrimaryLogosItem {
-  /**
-   * image field in *CustomerLogos → Custom Logos → Primary → logos*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.customLogos.primary.logos[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
-   * link field in *CustomerLogos → Custom Logos → Primary → logos*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.customLogos.primary.logos[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
-
-/**
- * Primary content in *CustomerLogos → Default → Primary*
- */
-export interface CustomerLogosSliceDefaultPrimary {
-  /**
-   * eyebrowHeadline field in *CustomerLogos → Default → Primary*
+   * Title field in *CompanyCarousel → Default → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.default.primary.eyebrowHeadline
+   * - **Placeholder**: Carousel section title (rich text)
+   * - **API ID Path**: company_carousel.default.primary.title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  eyebrowHeadline: prismic.RichTextField;
+  title: prismic.RichTextField;
 
   /**
-   * logos field in *CustomerLogos → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.default.primary.logos[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  logos: prismic.GroupField<
-    Simplify<CustomerLogosSliceDefaultPrimaryLogosItem>
-  >;
-}
-
-/**
- * Default variation for CustomerLogos Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type CustomerLogosSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<CustomerLogosSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Primary content in *CustomerLogos → Custom Logos → Primary*
- */
-export interface CustomerLogosSliceCustomLogosPrimary {
-  /**
-   * eyebrowHeadline field in *CustomerLogos → Custom Logos → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.customLogos.primary.eyebrowHeadline
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  eyebrowHeadline: prismic.RichTextField;
-
-  /**
-   * callToActionLabel field in *CustomerLogos → Custom Logos → Primary*
+   * Title Text field in *CompanyCarousel → Default → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.customLogos.primary.callToActionLabel
+   * - **Placeholder**: Plain text title (if needed for component props)
+   * - **API ID Path**: company_carousel.default.primary.title_text
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  callToActionLabel: prismic.KeyTextField;
+  title_text: prismic.KeyTextField;
 
   /**
-   * callToActionLink field in *CustomerLogos → Custom Logos → Primary*
+   * CSS Class String field in *CompanyCarousel → Default → Primary*
    *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.customLogos.primary.callToActionLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional CSS classes to apply
+   * - **API ID Path**: company_carousel.default.primary.class_string
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  callToActionLink: prismic.LinkField;
-
-  /**
-   * logos field in *CustomerLogos → Custom Logos → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: customer_logos.customLogos.primary.logos[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  logos: prismic.GroupField<
-    Simplify<CustomerLogosSliceCustomLogosPrimaryLogosItem>
-  >;
+  class_string: prismic.KeyTextField;
 }
 
 /**
- * Custom Logos variation for CustomerLogos Slice
+ * Primary content in *CompanyCarousel → Items*
+ */
+export interface CompanyCarouselSliceDefaultItem {
+  /**
+   * Company Logo field in *CompanyCarousel → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company_carousel.items[].company_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  company_logo: prismic.ImageField<never>;
+
+  /**
+   * Company Name field in *CompanyCarousel → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Name of the company (used as alt text)
+   * - **API ID Path**: company_carousel.items[].company_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  company_name: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for CompanyCarousel Slice
  *
- * - **API ID**: `customLogos`
- * - **Description**: Default
+ * - **API ID**: `default`
+ * - **Description**: Default company carousel
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type CustomerLogosSliceCustomLogos = prismic.SharedSliceVariation<
-  "customLogos",
-  Simplify<CustomerLogosSliceCustomLogosPrimary>,
-  never
+export type CompanyCarouselSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CompanyCarouselSliceDefaultPrimary>,
+  Simplify<CompanyCarouselSliceDefaultItem>
 >;
 
 /**
- * Slice variation for *CustomerLogos*
+ * Slice variation for *CompanyCarousel*
  */
-type CustomerLogosSliceVariation =
-  | CustomerLogosSliceDefault
-  | CustomerLogosSliceCustomLogos;
+type CompanyCarouselSliceVariation = CompanyCarouselSliceDefault;
 
 /**
- * CustomerLogos Shared Slice
+ * CompanyCarousel Shared Slice
  *
- * - **API ID**: `customer_logos`
- * - **Description**: CustomerLogos
+ * - **API ID**: `company_carousel`
+ * - **Description**: A carousel displaying company logos
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type CustomerLogosSlice = prismic.SharedSlice<
-  "customer_logos",
-  CustomerLogosSliceVariation
+export type CompanyCarouselSlice = prismic.SharedSlice<
+  "company_carousel",
+  CompanyCarouselSliceVariation
 >;
 
 /**
@@ -796,51 +728,153 @@ export type CustomerLogosSlice = prismic.SharedSlice<
  */
 export interface HeroSliceDefaultPrimary {
   /**
-   * Text field in *Hero → Default → Primary*
+   * Title field in *Hero → Default → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.text
+   * - **Placeholder**: Main hero title
+   * - **API ID Path**: hero.default.primary.title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  text: prismic.RichTextField;
+  title: prismic.RichTextField;
 
   /**
-   * Button Link field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.buttonLink
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  buttonLink: prismic.LinkField;
-
-  /**
-   * Button Text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.buttonText
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  buttonText: prismic.KeyTextField;
-
-  /**
-   * Background Image field in *Hero → Default → Primary*
+   * Header Man Image field in *Hero → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.backgroundImage
+   * - **API ID Path**: hero.default.primary.header_man_image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  backgroundImage: prismic.ImageField<never>;
+  header_man_image: prismic.ImageField<never>;
+
+  /**
+   * Header Woman Image field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.header_woman_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  header_woman_image: prismic.ImageField<never>;
+
+  /**
+   * Find Jobs Title field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Find jobs section title
+   * - **API ID Path**: hero.default.primary.find_jobs_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  find_jobs_title: prismic.RichTextField;
+
+  /**
+   * Find Jobs Description field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Description for finding jobs
+   * - **API ID Path**: hero.default.primary.find_jobs_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  find_jobs_description: prismic.RichTextField;
+
+  /**
+   * Find Jobs Button Text field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Button text
+   * - **API ID Path**: hero.default.primary.find_jobs_button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  find_jobs_button_text: prismic.KeyTextField;
+
+  /**
+   * Find Jobs Button Link field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Link for the button
+   * - **API ID Path**: hero.default.primary.find_jobs_button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  find_jobs_button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Hire Talent Title field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Hire talent section title
+   * - **API ID Path**: hero.default.primary.hire_talent_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hire_talent_title: prismic.RichTextField;
+
+  /**
+   * Hire Talent Description field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Description for hiring talent
+   * - **API ID Path**: hero.default.primary.hire_talent_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  hire_talent_description: prismic.RichTextField;
+
+  /**
+   * Hire Talent Button Text field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Button text
+   * - **API ID Path**: hero.default.primary.hire_talent_button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  hire_talent_button_text: prismic.KeyTextField;
+
+  /**
+   * Hire Talent Button Link field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Link for the button
+   * - **API ID Path**: hero.default.primary.hire_talent_button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  hire_talent_button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Mobile Title field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Title for mobile view
+   * - **API ID Path**: hero.default.primary.mobile_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  mobile_title: prismic.RichTextField;
+
+  /**
+   * Mobile Description field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Description for mobile view
+   * - **API ID Path**: hero.default.primary.mobile_description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  mobile_description: prismic.RichTextField;
 }
 
 /**
  * Default variation for Hero Slice
  *
  * - **API ID**: `default`
- * - **Description**: Hero
+ * - **Description**: Default hero section
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSliceDefault = prismic.SharedSliceVariation<
@@ -858,7 +892,7 @@ type HeroSliceVariation = HeroSliceDefault;
  * Hero Shared Slice
  *
  * - **API ID**: `hero`
- * - **Description**: Hero
+ * - **Description**: Hero section for the homepage
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
@@ -965,7 +999,13 @@ export interface ImageCardsSliceDefaultPrimaryCardsItem {
    * - **API ID Path**: image_cards.default.primary.cards[].buttonLink
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  buttonLink: prismic.LinkField;
+  buttonLink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 
   /**
    * Button Text field in *ImageCards → Default → Primary → Cards*
@@ -1202,6 +1242,16 @@ export interface TextWithImageSliceWithButtonPrimary {
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image.withButton.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  header: prismic.RichTextField;
+
+  /**
+   * Text field in *TextWithImage → With Button → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
    * - **API ID Path**: text_with_image.withButton.primary.text
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -1215,7 +1265,13 @@ export interface TextWithImageSliceWithButtonPrimary {
    * - **API ID Path**: text_with_image.withButton.primary.buttonLink
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  buttonLink: prismic.LinkField;
+  buttonLink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 
   /**
    * Button Text field in *TextWithImage → With Button → Primary*
@@ -1317,6 +1373,16 @@ export interface TextWithImageInversedSliceWithButtonPrimary {
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_image_inversed.withButton.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  header: prismic.RichTextField;
+
+  /**
+   * Text field in *TextWithImageInversed → With Button → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
    * - **API ID Path**: text_with_image_inversed.withButton.primary.text
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -1330,7 +1396,13 @@ export interface TextWithImageInversedSliceWithButtonPrimary {
    * - **API ID Path**: text_with_image_inversed.withButton.primary.buttonLink
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  buttonLink: prismic.LinkField;
+  buttonLink: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 
   /**
    * Button Text field in *TextWithImageInversed → With Button → Primary*
@@ -1432,14 +1504,11 @@ declare module "@prismicio/client" {
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceAlignLeft,
-      CustomerLogosSlice,
-      CustomerLogosSliceDefaultPrimaryLogosItem,
-      CustomerLogosSliceDefaultPrimary,
-      CustomerLogosSliceCustomLogosPrimaryLogosItem,
-      CustomerLogosSliceCustomLogosPrimary,
-      CustomerLogosSliceVariation,
-      CustomerLogosSliceDefault,
-      CustomerLogosSliceCustomLogos,
+      CompanyCarouselSlice,
+      CompanyCarouselSliceDefaultPrimary,
+      CompanyCarouselSliceDefaultItem,
+      CompanyCarouselSliceVariation,
+      CompanyCarouselSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,

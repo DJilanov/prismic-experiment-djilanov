@@ -38,9 +38,6 @@
             "text_with_image_inversed": {
               "type": "SharedSlice"
             },
-            "customer_logos": {
-              "type": "SharedSlice"
-            },
             "hero": {
               "type": "SharedSlice"
             },
