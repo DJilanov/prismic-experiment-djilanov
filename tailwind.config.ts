@@ -3,13 +3,13 @@ import flowbite from "flowbite-react/tailwind";
 
 const config: Config = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/*.{js,ts,jsx,tsx,mdx}",
-    "./slices/**/*.{js,ts,jsx,tsx,mdx}",
-    "./slices/*.{js,ts,jsx,tsx,mdx}",
-    "./sections/**/*.{js,ts,jsx,tsx,mdx}",
-    "./sections/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/*.{js,ts,jsx,tsx,mdx}",
+    "./src/slices/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/slices/*.{js,ts,jsx,tsx,mdx}",
+    "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/sections/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/socialbee-ui/**/*.{js,ts,jsx,tsx}",
     flowbite.content(),
   ],

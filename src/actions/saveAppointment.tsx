@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 'use server';
 
 import { type z } from 'zod';
