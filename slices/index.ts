@@ -3,11 +3,10 @@
 import dynamic from "next/dynamic";
 
 export const components = {
-  alternate_grid: dynamic(() => import("./AlternateGrid")),
+  alternate_grid: dynamic(() => import("./ImageWithText")),
   boxes_list: dynamic(() => import("./BoxesList")),
   call_to_action: dynamic(() => import("./CallToAction")),
   chance_section: dynamic(() => import("./ChanceSection")),
-  customer_logos: dynamic(() => import("./CustomerLogos")),
   diversity_section: dynamic(() => import("./DiversitySection")),
   faq_section: dynamic(() => import("./FAQ")),
   feedback_section: dynamic(() => import("./FeedbackSection")),

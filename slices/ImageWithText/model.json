@@ -1,7 +1,7 @@
 {
   "id": "alternate_grid",
   "type": "SharedSlice",
-  "name": "AlternateGrid",
+  "name": "ImageWithText",
   "description": "AlternateGrid",
   "variations": [
     {
@@ -71,7 +71,8 @@
             }
           }
         }
-      }
+      },
+      "items": {}
     },
     {
       "id": "imageRight",
@@ -140,7 +141,8 @@
             }
           }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }

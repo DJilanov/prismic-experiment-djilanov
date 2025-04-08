@@ -1,5 +1,5 @@
 import { PrismicRichText } from '@prismicio/react';
-import CompanyCarousel from '../../sections/carousel-section';
+import CompanyCarousel from '../../src/sections/carousel-section';
 
 type CompanyCarouselSliceProps = {
   slice: any;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { PrismicRichText } from '@prismicio/react';
 import { createClient } from '@/prismicio';
-import QuestionSlice from '../Question';
+import QuestionSlice from '.';
 
 type FAQSectionSliceProps = {
   slice: any;

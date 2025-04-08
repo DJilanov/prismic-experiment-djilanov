@@ -61,14 +61,7 @@ export type NavigationDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice =
-  | TextWithImageInversedSlice
-  | HeroSlice
-  | QuoteSlice
-  | TextSlice
-  | ImageSlice
-  | ImageCardsSlice
-  | TextWithImageSlice;
+type PageDocumentDataSlicesSlice = TextWithImageInversedSlice;
 
 /**
  * Content for Page documents
@@ -255,11 +248,11 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
- * Item in *AlternateGrid → Default → Primary → items*
+ * Item in *ImageWithText → Default → Primary → items*
  */
 export interface AlternateGridSliceDefaultPrimaryItemsItem {
   /**
-   * title field in *AlternateGrid → Default → Primary → items*
+   * title field in *ImageWithText → Default → Primary → items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -269,7 +262,7 @@ export interface AlternateGridSliceDefaultPrimaryItemsItem {
   title: prismic.RichTextField;
 
   /**
-   * description field in *AlternateGrid → Default → Primary → items*
+   * description field in *ImageWithText → Default → Primary → items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -280,11 +273,11 @@ export interface AlternateGridSliceDefaultPrimaryItemsItem {
 }
 
 /**
- * Item in *AlternateGrid → Image Right → Primary → items*
+ * Item in *ImageWithText → Image Right → Primary → items*
  */
 export interface AlternateGridSliceImageRightPrimaryItemsItem {
   /**
-   * title field in *AlternateGrid → Image Right → Primary → items*
+   * title field in *ImageWithText → Image Right → Primary → items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -294,7 +287,7 @@ export interface AlternateGridSliceImageRightPrimaryItemsItem {
   title: prismic.RichTextField;
 
   /**
-   * description field in *AlternateGrid → Image Right → Primary → items*
+   * description field in *ImageWithText → Image Right → Primary → items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -305,11 +298,11 @@ export interface AlternateGridSliceImageRightPrimaryItemsItem {
 }
 
 /**
- * Primary content in *AlternateGrid → Default → Primary*
+ * Primary content in *ImageWithText → Default → Primary*
  */
 export interface AlternateGridSliceDefaultPrimary {
   /**
-   * eyebrowHeadline field in *AlternateGrid → Default → Primary*
+   * eyebrowHeadline field in *ImageWithText → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: Eyebrow
@@ -319,7 +312,7 @@ export interface AlternateGridSliceDefaultPrimary {
   eyebrowHeadline: prismic.KeyTextField;
 
   /**
-   * title field in *AlternateGrid → Default → Primary*
+   * title field in *ImageWithText → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -329,7 +322,7 @@ export interface AlternateGridSliceDefaultPrimary {
   title: prismic.RichTextField;
 
   /**
-   * description field in *AlternateGrid → Default → Primary*
+   * description field in *ImageWithText → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -339,7 +332,7 @@ export interface AlternateGridSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
-   * image field in *AlternateGrid → Default → Primary*
+   * image field in *ImageWithText → Default → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -349,7 +342,7 @@ export interface AlternateGridSliceDefaultPrimary {
   image: prismic.ImageField<never>;
 
   /**
-   * items field in *AlternateGrid → Default → Primary*
+   * items field in *ImageWithText → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -362,7 +355,7 @@ export interface AlternateGridSliceDefaultPrimary {
 }
 
 /**
- * Default variation for AlternateGrid Slice
+ * Default variation for ImageWithText Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -375,11 +368,11 @@ export type AlternateGridSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Primary content in *AlternateGrid → Image Right → Primary*
+ * Primary content in *ImageWithText → Image Right → Primary*
  */
 export interface AlternateGridSliceImageRightPrimary {
   /**
-   * eyebrowHeadline field in *AlternateGrid → Image Right → Primary*
+   * eyebrowHeadline field in *ImageWithText → Image Right → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: Eyebrow
@@ -389,7 +382,7 @@ export interface AlternateGridSliceImageRightPrimary {
   eyebrowHeadline: prismic.KeyTextField;
 
   /**
-   * title field in *AlternateGrid → Image Right → Primary*
+   * title field in *ImageWithText → Image Right → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -399,7 +392,7 @@ export interface AlternateGridSliceImageRightPrimary {
   title: prismic.RichTextField;
 
   /**
-   * description field in *AlternateGrid → Image Right → Primary*
+   * description field in *ImageWithText → Image Right → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -409,7 +402,7 @@ export interface AlternateGridSliceImageRightPrimary {
   description: prismic.RichTextField;
 
   /**
-   * image field in *AlternateGrid → Image Right → Primary*
+   * image field in *ImageWithText → Image Right → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -419,7 +412,7 @@ export interface AlternateGridSliceImageRightPrimary {
   image: prismic.ImageField<never>;
 
   /**
-   * items field in *AlternateGrid → Image Right → Primary*
+   * items field in *ImageWithText → Image Right → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -432,7 +425,7 @@ export interface AlternateGridSliceImageRightPrimary {
 }
 
 /**
- * Image Right variation for AlternateGrid Slice
+ * Image Right variation for ImageWithText Slice
  *
  * - **API ID**: `imageRight`
  * - **Description**: Default
@@ -445,14 +438,14 @@ export type AlternateGridSliceImageRight = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *AlternateGrid*
+ * Slice variation for *ImageWithText*
  */
 type AlternateGridSliceVariation =
   | AlternateGridSliceDefault
   | AlternateGridSliceImageRight;
 
 /**
- * AlternateGrid Shared Slice
+ * ImageWithText Shared Slice
  *
  * - **API ID**: `alternate_grid`
  * - **Description**: AlternateGrid
@@ -461,6 +454,66 @@ type AlternateGridSliceVariation =
 export type AlternateGridSlice = prismic.SharedSlice<
   "alternate_grid",
   AlternateGridSliceVariation
+>;
+
+/**
+ * Primary content in *BoxesList → Default → Primary*
+ */
+export interface BoxesListSliceDefaultPrimary {
+  /**
+   * Title field in *BoxesList → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Title for the boxes list
+   * - **API ID Path**: boxes_list.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *BoxesList → Items*
+ */
+export interface BoxesListSliceDefaultItem {
+  /**
+   * Box Text field in *BoxesList → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Text to display in the box
+   * - **API ID Path**: boxes_list.items[].box_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  box_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for BoxesList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default boxes list
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BoxesListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BoxesListSliceDefaultPrimary>,
+  Simplify<BoxesListSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *BoxesList*
+ */
+type BoxesListSliceVariation = BoxesListSliceDefault;
+
+/**
+ * BoxesList Shared Slice
+ *
+ * - **API ID**: `boxes_list`
+ * - **Description**: A list of colored boxes containing text
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BoxesListSlice = prismic.SharedSlice<
+  "boxes_list",
+  BoxesListSliceVariation
 >;
 
 /**
@@ -631,6 +684,228 @@ export type CallToActionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ChanceSection → Default → Primary*
+ */
+export interface ChanceSectionSliceDefaultPrimary {
+  /**
+   * Title field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section title (desktop)
+   * - **API ID Path**: chance_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Title (Mobile) field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section title (mobile)
+   * - **API ID Path**: chance_section.default.primary.title_mobile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_mobile: prismic.RichTextField;
+
+  /**
+   * Description field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section description
+   * - **API ID Path**: chance_section.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Person Image field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: chance_section.default.primary.person_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  person_image: prismic.ImageField<never>;
+
+  /**
+   * Person Image Alt Text field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Alternative text for the person image
+   * - **API ID Path**: chance_section.default.primary.person_image_alt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  person_image_alt: prismic.KeyTextField;
+
+  /**
+   * Brushes Image field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: chance_section.default.primary.brushes_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  brushes_image: prismic.ImageField<never>;
+
+  /**
+   * Brushes Image Alt Text field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Alternative text for the brushes image
+   * - **API ID Path**: chance_section.default.primary.brushes_image_alt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  brushes_image_alt: prismic.KeyTextField;
+
+  /**
+   * Background Color field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: CSS class for background color
+   * - **Default Value**: bg-black
+   * - **API ID Path**: chance_section.default.primary.bg_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  bg_color: prismic.SelectField<
+    "bg-black" | "bg-primary-400" | "bg-gray-100" | "bg-white",
+    "filled"
+  >;
+
+  /**
+   * Image Position field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Vertical position of the person image
+   * - **Default Value**: top
+   * - **API ID Path**: chance_section.default.primary.image_position
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  image_position: prismic.SelectField<"top" | "bottom", "filled">;
+
+  /**
+   * Image Position Opposite on Phone field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: Should the image position be reversed on mobile?
+   * - **Default Value**: false
+   * - **API ID Path**: chance_section.default.primary.image_position_opposite_phone
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  image_position_opposite_phone: prismic.BooleanField;
+
+  /**
+   * Title Color field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: CSS class for title color
+   * - **Default Value**: text-text-diap-primary
+   * - **API ID Path**: chance_section.default.primary.title_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  title_color: prismic.SelectField<
+    | "text-text-diap-primary"
+    | "text-white"
+    | "text-black"
+    | "text-text-primary",
+    "filled"
+  >;
+
+  /**
+   * Description Color field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: CSS class for description color
+   * - **Default Value**: text-text-diap-secondary
+   * - **API ID Path**: chance_section.default.primary.description_color
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  description_color: prismic.SelectField<
+    | "text-text-diap-secondary"
+    | "text-white"
+    | "text-black"
+    | "text-text-secondary",
+    "filled"
+  >;
+
+  /**
+   * Background Gradient field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: Add a gradient overlay at the bottom?
+   * - **Default Value**: false
+   * - **API ID Path**: chance_section.default.primary.bg_gradient
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  bg_gradient: prismic.BooleanField;
+
+  /**
+   * No Brushes Image field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: Hide the brushes image?
+   * - **Default Value**: false
+   * - **API ID Path**: chance_section.default.primary.no_brushes_image
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  no_brushes_image: prismic.BooleanField;
+
+  /**
+   * Section ID field in *ChanceSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: HTML ID for the section (default: chance-section)
+   * - **API ID Path**: chance_section.default.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_id: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ChanceSection → Items*
+ */
+export interface ChanceSectionSliceDefaultItem {
+  /**
+   * Content Item field in *ChanceSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Content item (like buttons or links)
+   * - **API ID Path**: chance_section.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ChanceSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default chance section with image and text
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ChanceSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ChanceSectionSliceDefaultPrimary>,
+  Simplify<ChanceSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ChanceSection*
+ */
+type ChanceSectionSliceVariation = ChanceSectionSliceDefault;
+
+/**
+ * ChanceSection Shared Slice
+ *
+ * - **API ID**: `chance_section`
+ * - **Description**: A section with a person image and text on a colored background
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ChanceSectionSlice = prismic.SharedSlice<
+  "chance_section",
+  ChanceSectionSliceVariation
+>;
+
+/**
  * Primary content in *CompanyCarousel → Default → Primary*
  */
 export interface CompanyCarouselSliceDefaultPrimary {
@@ -718,6 +993,385 @@ type CompanyCarouselSliceVariation = CompanyCarouselSliceDefault;
 export type CompanyCarouselSlice = prismic.SharedSlice<
   "company_carousel",
   CompanyCarouselSliceVariation
+>;
+
+/**
+ * Item in *DiversitySection → Default → Primary → Description Sections*
+ */
+export interface DiversitySectionSliceDefaultPrimaryDescriptionSectionsItem {
+  /**
+   * Title field in *DiversitySection → Default → Primary → Description Sections*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section title
+   * - **API ID Path**: diversity_section.default.primary.description_sections[].description_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_title: prismic.RichTextField;
+
+  /**
+   * Description field in *DiversitySection → Default → Primary → Description Sections*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section description
+   * - **API ID Path**: diversity_section.default.primary.description_sections[].description_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description_text: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *DiversitySection → Default → Primary*
+ */
+export interface DiversitySectionSliceDefaultPrimary {
+  /**
+   * Title field in *DiversitySection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section title
+   * - **API ID Path**: diversity_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Header field in *DiversitySection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section header
+   * - **API ID Path**: diversity_section.default.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  header: prismic.RichTextField;
+
+  /**
+   * Section ID field in *DiversitySection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: HTML ID for the section (default: diversity-section)
+   * - **API ID Path**: diversity_section.default.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_id: prismic.KeyTextField;
+
+  /**
+   * Boxes Title field in *DiversitySection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Title for the boxes list section
+   * - **API ID Path**: diversity_section.default.primary.boxes_title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  boxes_title: prismic.RichTextField;
+
+  /**
+   * Boxes field in *DiversitySection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Comma-separated list of box texts
+   * - **API ID Path**: diversity_section.default.primary.boxes
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  boxes: prismic.KeyTextField;
+
+  /**
+   * Description Sections field in *DiversitySection → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: diversity_section.default.primary.description_sections[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  description_sections: prismic.GroupField<
+    Simplify<DiversitySectionSliceDefaultPrimaryDescriptionSectionsItem>
+  >;
+}
+
+/**
+ * Primary content in *DiversitySection → Items*
+ */
+export interface DiversitySectionSliceDefaultItem {
+  /**
+   * Image field in *DiversitySection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: diversity_section.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Image Alt Text field in *DiversitySection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Alternative text for the image
+   * - **API ID Path**: diversity_section.items[].image_alt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  image_alt: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for DiversitySection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default diversity section
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DiversitySectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DiversitySectionSliceDefaultPrimary>,
+  Simplify<DiversitySectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *DiversitySection*
+ */
+type DiversitySectionSliceVariation = DiversitySectionSliceDefault;
+
+/**
+ * DiversitySection Shared Slice
+ *
+ * - **API ID**: `diversity_section`
+ * - **Description**: A section displaying diversity information with images and description sections
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DiversitySectionSlice = prismic.SharedSlice<
+  "diversity_section",
+  DiversitySectionSliceVariation
+>;
+
+/**
+ * Primary content in *FAQSection → Default → Primary*
+ */
+export interface FaqSectionSliceDefaultPrimary {
+  /**
+   * Title field in *FAQSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: FAQ section title
+   * - **API ID Path**: faq_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *FAQSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section description text
+   * - **API ID Path**: faq_section.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Fetch Questions field in *FAQSection → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: Fetch questions from a central FAQ document
+   * - **Default Value**: false
+   * - **API ID Path**: faq_section.default.primary.fetch_questions
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  fetch_questions: prismic.BooleanField;
+
+  /**
+   * FAQ Content Type field in *FAQSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Content type ID to fetch questions from
+   * - **API ID Path**: faq_section.default.primary.faq_content_type
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  faq_content_type: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *FAQSection → Items*
+ */
+export interface FaqSectionSliceDefaultItem {
+  /**
+   * Question field in *FAQSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: FAQ question text
+   * - **API ID Path**: faq_section.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question: prismic.RichTextField;
+
+  /**
+   * Question (Mobile) field in *FAQSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: FAQ question text for mobile
+   * - **API ID Path**: faq_section.items[].question_mobile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question_mobile: prismic.RichTextField;
+
+  /**
+   * Answer field in *FAQSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: FAQ answer text
+   * - **API ID Path**: faq_section.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+
+  /**
+   * Start Open field in *FAQSection → Items*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: Should this question be expanded by default
+   * - **Default Value**: false
+   * - **API ID Path**: faq_section.items[].start_open
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  start_open: prismic.BooleanField;
+}
+
+/**
+ * Default variation for FAQSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default FAQ section
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FaqSectionSliceDefaultPrimary>,
+  Simplify<FaqSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FAQSection*
+ */
+type FaqSectionSliceVariation = FaqSectionSliceDefault;
+
+/**
+ * FAQSection Shared Slice
+ *
+ * - **API ID**: `faq_section`
+ * - **Description**: A section containing multiple FAQ questions
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSectionSlice = prismic.SharedSlice<
+  "faq_section",
+  FaqSectionSliceVariation
+>;
+
+/**
+ * Primary content in *FeedbackSection → Default → Primary*
+ */
+export interface FeedbackSectionSliceDefaultPrimary {
+  /**
+   * Title field in *FeedbackSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section title (desktop)
+   * - **API ID Path**: feedback_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Title (Mobile) field in *FeedbackSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section title (mobile)
+   * - **API ID Path**: feedback_section.default.primary.title_mobile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title_mobile: prismic.RichTextField;
+
+  /**
+   * Section ID field in *FeedbackSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional HTML ID for the section
+   * - **API ID Path**: feedback_section.default.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_id: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *FeedbackSection → Items*
+ */
+export interface FeedbackSectionSliceDefaultItem {
+  /**
+   * Testimonial Comment field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Feedback or testimonial text
+   * - **API ID Path**: feedback_section.items[].comment
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  comment: prismic.RichTextField;
+
+  /**
+   * Person Image field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feedback_section.items[].person_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  person_image: prismic.ImageField<never>;
+
+  /**
+   * Person Name field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Name of the person giving feedback
+   * - **API ID Path**: feedback_section.items[].person_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  person_name: prismic.KeyTextField;
+
+  /**
+   * Person Position field in *FeedbackSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Job title or position of the person
+   * - **API ID Path**: feedback_section.items[].person_position
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  person_position: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for FeedbackSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default feedback section with testimonials
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeedbackSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeedbackSectionSliceDefaultPrimary>,
+  Simplify<FeedbackSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FeedbackSection*
+ */
+type FeedbackSectionSliceVariation = FeedbackSectionSliceDefault;
+
+/**
+ * FeedbackSection Shared Slice
+ *
+ * - **API ID**: `feedback_section`
+ * - **Description**: A section displaying user testimonials or feedback
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FeedbackSectionSlice = prismic.SharedSlice<
+  "feedback_section",
+  FeedbackSectionSliceVariation
 >;
 
 /**
@@ -893,6 +1547,161 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *HeroSection → Default → Primary*
+ */
+export interface HeroSectionSliceDefaultPrimary {
+  /**
+   * Background Image field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.default.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Hero title
+   * - **API ID Path**: hero_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Hero description text
+   * - **API ID Path**: hero_section.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Stripe Image field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.default.primary.stripe_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  stripe_image: prismic.ImageField<never>;
+
+  /**
+   * Stripe Style (Desktop) field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: JSON object with CSS styles for the stripe (desktop)
+   * - **API ID Path**: hero_section.default.primary.stripe_style
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  stripe_style: prismic.KeyTextField;
+
+  /**
+   * Stripe Style (Mobile) field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: JSON object with CSS styles for the stripe (mobile)
+   * - **API ID Path**: hero_section.default.primary.stripe_style_phone
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  stripe_style_phone: prismic.KeyTextField;
+
+  /**
+   * Button Text field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Text for the primary button
+   * - **API ID Path**: hero_section.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * More Text field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Text for the 'learn more' link
+   * - **API ID Path**: hero_section.default.primary.more_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  more_text: prismic.KeyTextField;
+
+  /**
+   * Submit Button Target ID field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Element ID to scroll to when button is clicked
+   * - **API ID Path**: hero_section.default.primary.on_submit_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  on_submit_id: prismic.KeyTextField;
+
+  /**
+   * More Button Target ID field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Element ID to scroll to when 'learn more' is clicked
+   * - **API ID Path**: hero_section.default.primary.on_more_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  on_more_id: prismic.KeyTextField;
+
+  /**
+   * Background Position field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: CSS background position for desktop view
+   * - **API ID Path**: hero_section.default.primary.background_position
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  background_position: prismic.SelectField<
+    | "top"
+    | "center"
+    | "bottom"
+    | "left"
+    | "right"
+    | "top-left"
+    | "top-right"
+    | "bottom-left"
+    | "bottom-right"
+  >;
+}
+
+/**
+ * Default variation for HeroSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default hero section with background image
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroSection*
+ */
+type HeroSectionSliceVariation = HeroSectionSliceDefault;
+
+/**
+ * HeroSection Shared Slice
+ *
+ * - **API ID**: `hero_section`
+ * - **Description**: A hero section with background image, title, and description
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSectionSlice = prismic.SharedSlice<
+  "hero_section",
+  HeroSectionSliceVariation
+>;
 
 /**
  * Primary content in *Image → Default → Primary*
@@ -1071,6 +1880,349 @@ export type ImageCardsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ImageWithTextSection → Default → Primary*
+ */
+export interface ImageWithTextSectionSliceDefaultPrimary {
+  /**
+   * Title field in *ImageWithTextSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section title
+   * - **API ID Path**: image_with_text_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Header field in *ImageWithTextSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section header
+   * - **API ID Path**: image_with_text_section.default.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  header: prismic.RichTextField;
+
+  /**
+   * Text field in *ImageWithTextSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Main text content
+   * - **API ID Path**: image_with_text_section.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Image Position field in *ImageWithTextSection → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Position of the image
+   * - **Default Value**: right
+   * - **API ID Path**: image_with_text_section.default.primary.image_position
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  image_position: prismic.SelectField<"left" | "right", "filled">;
+
+  /**
+   * Image field in *ImageWithTextSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_with_text_section.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Image Alt Text field in *ImageWithTextSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Alternative text for the image
+   * - **API ID Path**: image_with_text_section.default.primary.image_alt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  image_alt: prismic.KeyTextField;
+
+  /**
+   * Section ID field in *ImageWithTextSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional HTML ID for the section
+   * - **API ID Path**: image_with_text_section.default.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_id: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ImageWithTextSection → Items*
+ */
+export interface ImageWithTextSectionSliceDefaultItem {
+  /**
+   * Additional Content field in *ImageWithTextSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Additional content items (optional)
+   * - **API ID Path**: image_with_text_section.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ImageWithTextSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default image with text section
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageWithTextSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageWithTextSectionSliceDefaultPrimary>,
+  Simplify<ImageWithTextSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ImageWithTextSection*
+ */
+type ImageWithTextSectionSliceVariation = ImageWithTextSectionSliceDefault;
+
+/**
+ * ImageWithTextSection Shared Slice
+ *
+ * - **API ID**: `image_with_text_section`
+ * - **Description**: A section with an image and text side by side
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageWithTextSectionSlice = prismic.SharedSlice<
+  "image_with_text_section",
+  ImageWithTextSectionSliceVariation
+>;
+
+/**
+ * Primary content in *ProcessSection → Default → Primary*
+ */
+export interface ProcessSectionSliceDefaultPrimary {
+  /**
+   * Title field in *ProcessSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section title
+   * - **API ID Path**: process_section.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Title Link field in *ProcessSection → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Optional link for the title
+   * - **API ID Path**: process_section.default.primary.title_href
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_href: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Header field in *ProcessSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section header
+   * - **API ID Path**: process_section.default.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  header: prismic.RichTextField;
+
+  /**
+   * Section ID field in *ProcessSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Optional HTML ID for the section
+   * - **API ID Path**: process_section.default.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_id: prismic.KeyTextField;
+
+  /**
+   * Process Image field in *ProcessSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: process_section.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Image Alt Text field in *ProcessSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Alternative text for the image
+   * - **API ID Path**: process_section.default.primary.image_alt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  image_alt: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ProcessSection → Items*
+ */
+export interface ProcessSectionSliceDefaultItem {
+  /**
+   * Step Title field in *ProcessSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Title for this process step
+   * - **API ID Path**: process_section.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Step Subtitle field in *ProcessSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Optional subtitle for this step
+   * - **API ID Path**: process_section.items[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.RichTextField;
+
+  /**
+   * Step Description field in *ProcessSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Description of this process step
+   * - **API ID Path**: process_section.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Step Link field in *ProcessSection → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Optional link for this step
+   * - **API ID Path**: process_section.items[].href
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  href: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for ProcessSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default process section with steps and image
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProcessSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProcessSectionSliceDefaultPrimary>,
+  Simplify<ProcessSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *ProcessSection*
+ */
+type ProcessSectionSliceVariation = ProcessSectionSliceDefault;
+
+/**
+ * ProcessSection Shared Slice
+ *
+ * - **API ID**: `process_section`
+ * - **Description**: A section displaying a process with numbered steps
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProcessSectionSlice = prismic.SharedSlice<
+  "process_section",
+  ProcessSectionSliceVariation
+>;
+
+/**
+ * Primary content in *Question → Default → Primary*
+ */
+export interface QuestionSliceDefaultPrimary {
+  /**
+   * Question field in *Question → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Question text (desktop)
+   * - **API ID Path**: question.default.primary.question
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question: prismic.RichTextField;
+
+  /**
+   * Question (Mobile) field in *Question → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Question text (mobile)
+   * - **API ID Path**: question.default.primary.question_mobile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question_mobile: prismic.RichTextField;
+
+  /**
+   * Answer field in *Question → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Answer text
+   * - **API ID Path**: question.default.primary.answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+
+  /**
+   * Start Open field in *Question → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: Should this question be expanded by default
+   * - **Default Value**: false
+   * - **API ID Path**: question.default.primary.start_open
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  start_open: prismic.BooleanField;
+}
+
+/**
+ * Default variation for Question Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default question and answer
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuestionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<QuestionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Question*
+ */
+type QuestionSliceVariation = QuestionSliceDefault;
+
+/**
+ * Question Shared Slice
+ *
+ * - **API ID**: `question`
+ * - **Description**: An expandable FAQ question and answer
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type QuestionSlice = prismic.SharedSlice<
+  "question",
+  QuestionSliceVariation
+>;
+
+/**
  * Primary content in *Quote → Default → Primary*
  */
 export interface QuoteSliceDefaultPrimary {
@@ -1121,6 +2273,392 @@ type QuoteSliceVariation = QuoteSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type QuoteSlice = prismic.SharedSlice<"quote", QuoteSliceVariation>;
+
+/**
+ * Primary content in *SectionBox → Default → Primary*
+ */
+export interface SectionBoxSliceDefaultPrimary {
+  /**
+   * Header field in *SectionBox → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section header (desktop)
+   * - **API ID Path**: section_box.default.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  header: prismic.RichTextField;
+
+  /**
+   * Header (Mobile) field in *SectionBox → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section header (mobile)
+   * - **API ID Path**: section_box.default.primary.header_mobile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  header_mobile: prismic.RichTextField;
+
+  /**
+   * Title field in *SectionBox → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section title
+   * - **API ID Path**: section_box.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Title Link field in *SectionBox → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Link for the title (optional)
+   * - **API ID Path**: section_box.default.primary.title_href
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  title_href: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Section ID field in *SectionBox → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: HTML ID for the section (for anchor links)
+   * - **API ID Path**: section_box.default.primary.section_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_id: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *SectionBox → Items*
+ */
+export interface SectionBoxSliceDefaultItem {
+  /**
+   * Content field in *SectionBox → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Section content (optional, can be overridden by children)
+   * - **API ID Path**: section_box.items[].content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for SectionBox Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default section box
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SectionBoxSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SectionBoxSliceDefaultPrimary>,
+  Simplify<SectionBoxSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *SectionBox*
+ */
+type SectionBoxSliceVariation = SectionBoxSliceDefault;
+
+/**
+ * SectionBox Shared Slice
+ *
+ * - **API ID**: `section_box`
+ * - **Description**: A section container with header and title
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SectionBoxSlice = prismic.SharedSlice<
+  "section_box",
+  SectionBoxSliceVariation
+>;
+
+/**
+ * Primary content in *TalentSection → Default → Primary*
+ */
+export interface TalentSectionSliceDefaultPrimary {
+  /**
+   * First Title field in *TalentSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Title for the first column
+   * - **API ID Path**: talent_section.default.primary.first_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  first_title: prismic.KeyTextField;
+
+  /**
+   * First Information field in *TalentSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Information for first column (desktop)
+   * - **API ID Path**: talent_section.default.primary.first_info
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  first_info: prismic.RichTextField;
+
+  /**
+   * First Information (Mobile) field in *TalentSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Information for first column (mobile)
+   * - **API ID Path**: talent_section.default.primary.first_info_mobile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  first_info_mobile: prismic.RichTextField;
+
+  /**
+   * Second Title field in *TalentSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Title for the second column
+   * - **API ID Path**: talent_section.default.primary.second_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  second_title: prismic.KeyTextField;
+
+  /**
+   * Second Information field in *TalentSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Information for second column (desktop)
+   * - **API ID Path**: talent_section.default.primary.second_info
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  second_info: prismic.RichTextField;
+
+  /**
+   * Second Information (Mobile) field in *TalentSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Information for second column (mobile)
+   * - **API ID Path**: talent_section.default.primary.second_info_mobile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  second_info_mobile: prismic.RichTextField;
+
+  /**
+   * Third Title field in *TalentSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Title for the third column
+   * - **API ID Path**: talent_section.default.primary.third_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  third_title: prismic.KeyTextField;
+
+  /**
+   * Third Information field in *TalentSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Information for third column (desktop)
+   * - **API ID Path**: talent_section.default.primary.third_info
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  third_info: prismic.RichTextField;
+
+  /**
+   * Third Information (Mobile) field in *TalentSection → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Information for third column (mobile)
+   * - **API ID Path**: talent_section.default.primary.third_info_mobile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  third_info_mobile: prismic.RichTextField;
+
+  /**
+   * Stripe Image field in *TalentSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: talent_section.default.primary.stripe_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  stripe_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for TalentSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default talent section with three columns of information
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TalentSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TalentSectionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TalentSection*
+ */
+type TalentSectionSliceVariation = TalentSectionSliceDefault;
+
+/**
+ * TalentSection Shared Slice
+ *
+ * - **API ID**: `talent_section`
+ * - **Description**: A section displaying talent information in three columns
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TalentSectionSlice = prismic.SharedSlice<
+  "talent_section",
+  TalentSectionSliceVariation
+>;
+
+/**
+ * Primary content in *TalentsNumbers → Default → Primary*
+ */
+export interface TalentsNumbersSliceDefaultPrimary {
+  /**
+   * First Number field in *TalentsNumbers → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: First statistic number (e.g. '95%')
+   * - **API ID Path**: talents_numbers.default.primary.first_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  first_number: prismic.KeyTextField;
+
+  /**
+   * First Text field in *TalentsNumbers → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Description for first statistic (desktop)
+   * - **API ID Path**: talents_numbers.default.primary.first_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  first_text: prismic.RichTextField;
+
+  /**
+   * First Text (Mobile) field in *TalentsNumbers → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Description for first statistic (mobile)
+   * - **API ID Path**: talents_numbers.default.primary.first_text_mobile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  first_text_mobile: prismic.RichTextField;
+
+  /**
+   * Second Number field in *TalentsNumbers → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Second statistic number (e.g. '80%')
+   * - **API ID Path**: talents_numbers.default.primary.second_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  second_number: prismic.KeyTextField;
+
+  /**
+   * Second Text field in *TalentsNumbers → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Description for second statistic (desktop)
+   * - **API ID Path**: talents_numbers.default.primary.second_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  second_text: prismic.RichTextField;
+
+  /**
+   * Second Text (Mobile) field in *TalentsNumbers → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Description for second statistic (mobile)
+   * - **API ID Path**: talents_numbers.default.primary.second_text_mobile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  second_text_mobile: prismic.RichTextField;
+
+  /**
+   * Third Number field in *TalentsNumbers → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Third statistic number (e.g. '70%')
+   * - **API ID Path**: talents_numbers.default.primary.third_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  third_number: prismic.KeyTextField;
+
+  /**
+   * Third Text field in *TalentsNumbers → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Description for third statistic (desktop)
+   * - **API ID Path**: talents_numbers.default.primary.third_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  third_text: prismic.RichTextField;
+
+  /**
+   * Third Text (Mobile) field in *TalentsNumbers → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Description for third statistic (mobile)
+   * - **API ID Path**: talents_numbers.default.primary.third_text_mobile
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  third_text_mobile: prismic.RichTextField;
+
+  /**
+   * Plus Image field in *TalentsNumbers → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: talents_numbers.default.primary.plus_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  plus_image: prismic.ImageField<never>;
+
+  /**
+   * Image Alt Text field in *TalentsNumbers → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Alternative text for the plus image
+   * - **API ID Path**: talents_numbers.default.primary.image_alt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  image_alt: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for TalentsNumbers Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default talent numbers section with three statistics
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TalentsNumbersSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TalentsNumbersSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TalentsNumbers*
+ */
+type TalentsNumbersSliceVariation = TalentsNumbersSliceDefault;
+
+/**
+ * TalentsNumbers Shared Slice
+ *
+ * - **API ID**: `talents_numbers`
+ * - **Description**: A section displaying three key numbers with descriptions
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TalentsNumbersSlice = prismic.SharedSlice<
+  "talents_numbers",
+  TalentsNumbersSliceVariation
+>;
 
 /**
  * Primary content in *Text → Default → Primary*
@@ -1495,21 +3033,51 @@ declare module "@prismicio/client" {
       AlternateGridSliceVariation,
       AlternateGridSliceDefault,
       AlternateGridSliceImageRight,
+      BoxesListSlice,
+      BoxesListSliceDefaultPrimary,
+      BoxesListSliceDefaultItem,
+      BoxesListSliceVariation,
+      BoxesListSliceDefault,
       CallToActionSlice,
       CallToActionSliceDefaultPrimary,
       CallToActionSliceAlignLeftPrimary,
       CallToActionSliceVariation,
       CallToActionSliceDefault,
       CallToActionSliceAlignLeft,
+      ChanceSectionSlice,
+      ChanceSectionSliceDefaultPrimary,
+      ChanceSectionSliceDefaultItem,
+      ChanceSectionSliceVariation,
+      ChanceSectionSliceDefault,
       CompanyCarouselSlice,
       CompanyCarouselSliceDefaultPrimary,
       CompanyCarouselSliceDefaultItem,
       CompanyCarouselSliceVariation,
       CompanyCarouselSliceDefault,
+      DiversitySectionSlice,
+      DiversitySectionSliceDefaultPrimaryDescriptionSectionsItem,
+      DiversitySectionSliceDefaultPrimary,
+      DiversitySectionSliceDefaultItem,
+      DiversitySectionSliceVariation,
+      DiversitySectionSliceDefault,
+      FaqSectionSlice,
+      FaqSectionSliceDefaultPrimary,
+      FaqSectionSliceDefaultItem,
+      FaqSectionSliceVariation,
+      FaqSectionSliceDefault,
+      FeedbackSectionSlice,
+      FeedbackSectionSliceDefaultPrimary,
+      FeedbackSectionSliceDefaultItem,
+      FeedbackSectionSliceVariation,
+      FeedbackSectionSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HeroSectionSlice,
+      HeroSectionSliceDefaultPrimary,
+      HeroSectionSliceVariation,
+      HeroSectionSliceDefault,
       ImageSlice,
       ImageSliceDefaultPrimary,
       ImageSliceBannerPrimary,
@@ -1521,10 +3089,37 @@ declare module "@prismicio/client" {
       ImageCardsSliceDefaultPrimary,
       ImageCardsSliceVariation,
       ImageCardsSliceDefault,
+      ImageWithTextSectionSlice,
+      ImageWithTextSectionSliceDefaultPrimary,
+      ImageWithTextSectionSliceDefaultItem,
+      ImageWithTextSectionSliceVariation,
+      ImageWithTextSectionSliceDefault,
+      ProcessSectionSlice,
+      ProcessSectionSliceDefaultPrimary,
+      ProcessSectionSliceDefaultItem,
+      ProcessSectionSliceVariation,
+      ProcessSectionSliceDefault,
+      QuestionSlice,
+      QuestionSliceDefaultPrimary,
+      QuestionSliceVariation,
+      QuestionSliceDefault,
       QuoteSlice,
       QuoteSliceDefaultPrimary,
       QuoteSliceVariation,
       QuoteSliceDefault,
+      SectionBoxSlice,
+      SectionBoxSliceDefaultPrimary,
+      SectionBoxSliceDefaultItem,
+      SectionBoxSliceVariation,
+      SectionBoxSliceDefault,
+      TalentSectionSlice,
+      TalentSectionSliceDefaultPrimary,
+      TalentSectionSliceVariation,
+      TalentSectionSliceDefault,
+      TalentsNumbersSlice,
+      TalentsNumbersSliceDefaultPrimary,
+      TalentsNumbersSliceVariation,
+      TalentsNumbersSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceTwoColumnsPrimary,
