@@ -6,7 +6,7 @@ import {
 import { SliceZone } from "@prismicio/react";
 import { redirect } from "next/navigation";
 
-import { components } from "../../../slices";
+import { components } from "../../slices";
 
 export default function SliceSimulatorPage({
   searchParams,

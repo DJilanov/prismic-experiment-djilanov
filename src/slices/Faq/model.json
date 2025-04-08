@@ -1,7 +1,7 @@
 {
-  "id": "faq_section",
+  "id": "faq",
   "type": "SharedSlice",
-  "name": "FAQSection",
+  "name": "FAQ",
   "description": "A section containing multiple FAQ questions",
   "variations": [
     {

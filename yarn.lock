@@ -130,13 +130,6 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.9.tgz#50dea3616bc8191fb8e112283b49eaff03e78429"
   integrity sha512-MDWhGtE+eHw5JW7lq4qhc5yRLS11ERl1c7Z6Xd0a58DozHES6EnNNwUWbMiG4J9Cgj053Bhk8zvlhFYKVhULwg==
 
-"@formatjs/intl-localematcher@^0.5.2":
-  version "0.5.10"
-  resolved "https://registry.yarnpkg.com/@formatjs/intl-localematcher/-/intl-localematcher-0.5.10.tgz#1e0bd3fc1332c1fe4540cfa28f07e9227b659a58"
-  integrity sha512-af3qATX+m4Rnd9+wHcjJ4w2ijq+rAVP3CCinJQvFv1kgSu1W6jypUmvleJxcewdxmutM8dmIRZFxO/IQBZmP2Q==
-  dependencies:
-    tslib "2"
-
 "@fortawesome/fontawesome-common-types@6.6.0":
   version "6.6.0"
   resolved "https://npm.fontawesome.com/@fortawesome/fontawesome-common-types/-/6.6.0/fontawesome-common-types-6.6.0.tgz#31ab07ca6a06358c5de4d295d4711b675006163f"
@@ -395,12 +388,19 @@
     tslib "^2.5.0"
     uuid "^9.0.0"
 
-"@prismicio/client@7.17.0", "@prismicio/client@^7.1.0", "@prismicio/client@^7.11.0":
+"@prismicio/client@7.17.0", "@prismicio/client@^7.1.0":
   version "7.17.0"
   resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-7.17.0.tgz#7b8f12fbc76e02a23fe817a1a0d8410d83fc40f6"
   integrity sha512-7e1ICYk4IAxKX8zmtCOy9e8rXeeT9A45ZgJY9lNNWqUaL1LW/ilXnh/SsAZG/G5q14JyRJHwBIGIzcKY9hjJhw==
   dependencies:
     imgix-url-builder "^0.0.5"
+
+"@prismicio/client@^7.17.1":
+  version "7.17.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/client/-/client-7.17.1.tgz#f2a14a4e8d1912730bd8728c2a484a7d094766a1"
+  integrity sha512-/CozojXyPYU62SOJ7Ln65wOmHhlWi03n7Vplciao9k+J3HvdxoSFa+RB2IAYY0Xd7wuXCCesscgCjbNy70pGPA==
+  dependencies:
+    imgix-url-builder "^0.0.6"
 
 "@prismicio/custom-types-client@2.1.0":
   version "2.1.0"
@@ -428,28 +428,19 @@
     tslib "^2.3.1"
     uuid "^9.0.1"
 
-"@prismicio/next@^1.7.0":
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/@prismicio/next/-/next-1.7.2.tgz#f446461043492a922e42adbd0e715cbb6d013f55"
-  integrity sha512-dS9fRujiqK+uyhA5vCJgvxp4k7w3s6jm5Ln4fh1NSMS00yo7lHVL4GnhNmrxqATnIn/nHLbQmO24+yZVRWvxjw==
+"@prismicio/next@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@prismicio/next/-/next-2.0.1.tgz#161c02f51c78d919f07dc51a8ecf3b4393d3b861"
+  integrity sha512-wIC7pNd6nmdK3ZzlF1U+XGPRER7vL1zQdasvU3USdxWO1cxjdaK3LgFrpU28YZYH2RaGHmC5Wa303faILH86HQ==
   dependencies:
-    "@formatjs/intl-localematcher" "^0.5.2"
-    imgix-url-builder "^0.0.4"
-    negotiator "^0.6.3"
+    imgix-url-builder "^0.0.5"
 
-"@prismicio/react@^2.9.0":
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/@prismicio/react/-/react-2.9.2.tgz#b050971036d9a4c31072a2fc9ee909f28ec4b7ce"
-  integrity sha512-aXTIYI1DNbBMaaDd4czW8foqJku2VXVGqI4n34w2BKMBPXqugCcL1dqaKtsyreza3bo0nE5C6YhUyil4rx70BA==
+"@prismicio/react@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@prismicio/react/-/react-3.2.0.tgz#6f560e02f98738bac3becd7c78f38ee5d93a5724"
+  integrity sha512-oxn7EfJOhdYe2UNLymPQUNurhcV7zbeEHmG6pQ6IKI5FRqtyJB3xlqqW02Zq01YOYHVihnfNwfPXtAxAn/9E4Q==
   dependencies:
-    "@prismicio/richtext" "^2.1.5"
-
-"@prismicio/richtext@^2.1.5":
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/@prismicio/richtext/-/richtext-2.1.5.tgz#8a433939765bead2a521150fb15af0b49c6af421"
-  integrity sha512-Sf6iCsciPmfK3uQeFmeY9RTRSuhrCVzyU39OkiJ1VJn8O0531pKapGoWS+5WGxouJtE5+jGqV8L+L2mKP7NkXQ==
-  dependencies:
-    "@prismicio/types" "^0.2.7"
+    esm-env "^1.2.2"
 
 "@prismicio/simulator@^0.1.4":
   version "0.1.4"
@@ -469,11 +460,6 @@
     newtype-ts "^0.3.5"
     tslib "^2.3.1"
     uuid "^9.0.0"
-
-"@prismicio/types@^0.2.7":
-  version "0.2.9"
-  resolved "https://registry.yarnpkg.com/@prismicio/types/-/types-0.2.9.tgz#9846b8830b52256b3090b2221a8240ba415b1b9f"
-  integrity sha512-1uhHnZTiGeCi+rmO507B8jtnUTCNetdgrC5sfZEw9zsCplfgBELt0+BN1RFsXWLbZbyvR9xzHcrJ87Ykqa8JZA==
 
 "@rollup/plugin-node-resolve@^15.2.3":
   version "15.3.1"
@@ -598,14 +584,14 @@
   resolved "https://registry.yarnpkg.com/@sideway/pinpoint/-/pinpoint-2.0.0.tgz#cff8ffadc372ad29fd3f78277aeb29e632cc70df"
   integrity sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==
 
-"@slicemachine/adapter-next@^0.3.49":
-  version "0.3.72"
-  resolved "https://registry.yarnpkg.com/@slicemachine/adapter-next/-/adapter-next-0.3.72.tgz#b146c48751fecdf10caa4920cec10194f9eeae04"
-  integrity sha512-u/L9WS2C9gKPdv8qXbuTHmd5aUrZH8QJUkccTd+b+xGFJb76rxkYOXj2Vk/6EFiGAq8YIlXXoVeUmgvBHjxoRQ==
+"@slicemachine/adapter-next@^0.3.73":
+  version "0.3.73"
+  resolved "https://registry.yarnpkg.com/@slicemachine/adapter-next/-/adapter-next-0.3.73.tgz#df2842c533807c208f08c1b84ceffb004f3040bf"
+  integrity sha512-8jGFRQuhpJLVEL41AP5S+VHSQrolkm/ii8PSLvLg1gmeZr5VPGPTtlWzWdJTj0/4QPPdrd0GUJARyNllzGyP5g==
   dependencies:
     "@prismicio/simulator" "^0.1.4"
     "@prismicio/types-internal" "3.8.0"
-    "@slicemachine/plugin-kit" "0.4.71"
+    "@slicemachine/plugin-kit" "0.4.72"
     common-tags "^1.8.2"
     fp-ts "^2.13.1"
     io-ts "^2.2.20"
@@ -615,10 +601,10 @@
     newtype-ts "^0.3.5"
     pascal-case "^3.1.2"
 
-"@slicemachine/manager@0.24.9":
-  version "0.24.9"
-  resolved "https://registry.yarnpkg.com/@slicemachine/manager/-/manager-0.24.9.tgz#61dc974470a19a260c9798639f873aff230e34a5"
-  integrity sha512-/6lEqy7rH/Ky5AyZJnOwrO3j7TD9Lcvgd7xLJYOHd4T45XtymopQItznkXZQd0AZYN/qdGxUN5Yzm+JWsvJLbQ==
+"@slicemachine/manager@0.24.10":
+  version "0.24.10"
+  resolved "https://registry.yarnpkg.com/@slicemachine/manager/-/manager-0.24.10.tgz#905eaffa445972223135afca60659b8efc662083"
+  integrity sha512-Ms2nq/apa8LBD2cONd3du5zPYaA7J90BBuMJGs5pKER70YxOidBUNZrOT9pSbx0M0fceXYi5qR1VReU/fB26ZQ==
   dependencies:
     "@antfu/ni" "^0.20.0"
     "@prismicio/client" "7.17.0"
@@ -626,7 +612,7 @@
     "@prismicio/mocks" "2.12.0"
     "@prismicio/types-internal" "3.8.0"
     "@segment/analytics-node" "^2.1.2"
-    "@slicemachine/plugin-kit" "0.4.71"
+    "@slicemachine/plugin-kit" "0.4.72"
     cookie "^1.0.1"
     cors "^2.8.5"
     execa "^7.1.1"
@@ -647,10 +633,10 @@
     readable-web-to-node-stream "^3.0.2"
     semver "^7.3.8"
 
-"@slicemachine/plugin-kit@0.4.71":
-  version "0.4.71"
-  resolved "https://registry.yarnpkg.com/@slicemachine/plugin-kit/-/plugin-kit-0.4.71.tgz#9ae5a8fdddac3de96785bce14e00fc47f9f5eb91"
-  integrity sha512-UZXTRxB+7JpHazj2kBhHfk5hvIfzZdl18BJNJfZd9wRyCFnE1whqMHZOo5yOeh4U4Tz+0QPB8K0Ee8aQ+H1x0w==
+"@slicemachine/plugin-kit@0.4.72":
+  version "0.4.72"
+  resolved "https://registry.yarnpkg.com/@slicemachine/plugin-kit/-/plugin-kit-0.4.72.tgz#82978c492d9c8ed2560cd979e629545b47675e17"
+  integrity sha512-FUceS3oo2tcoz1lOiBvqy3WsQUyk6j2VfRCDxs2+8tJTLLNJdoZXPAI2uXCiNDdZBYJoZNdb9mGv2OvnX/cLSQ==
   dependencies:
     "@prismicio/client" "7.17.0"
     common-tags "^1.8.2"
@@ -2138,6 +2124,11 @@ eslint@^8.57.0:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
+esm-env@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/esm-env/-/esm-env-1.2.2.tgz#263c9455c55861f41618df31b20cb571fc20b75e"
+  integrity sha512-Epxrv+Nr/CaL4ZcFGPJIYLWFom+YeV1DqMLHJoEd9SYRxNbaFruBwfEX/kkHUJf55j2+TUbmDcmuilbP1TmXHA==
+
 espree@^9.6.0, espree@^9.6.1:
   version "9.6.1"
   resolved "https://registry.yarnpkg.com/espree/-/espree-9.6.1.tgz#a2a17b8e434690a5432f2f8018ce71d331a48c6f"
@@ -2803,15 +2794,15 @@ ignore@^5.2.0, ignore@^5.3.1:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.3.2.tgz#3cd40e729f3643fd87cb04e50bf0eb722bc596f5"
   integrity sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==
 
-imgix-url-builder@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/imgix-url-builder/-/imgix-url-builder-0.0.4.tgz#c0e9569eb069178b1462d6ce0b8d0943cb334a1c"
-  integrity sha512-JRLydfxGTTbSSOG82ewuCgnmw/CzIPzoDqpP3UYD7RE+QWS8ZZbpF87ZuRqtcbEKdxahRsExinuKRxPZVvukWA==
-
 imgix-url-builder@^0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/imgix-url-builder/-/imgix-url-builder-0.0.5.tgz#641e4af7fc1443d3f9f30f3c1331e4c1a2ad9832"
   integrity sha512-dCx3UlXghtsjySoqVCcHQHRikqDummwQEfKlxBUK/wrMzd+1ox/XX+zhqVuXKMVuZvCc84pVLEJyntQB0OOi/w==
+
+imgix-url-builder@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/imgix-url-builder/-/imgix-url-builder-0.0.6.tgz#5bed6f1a0969f6f3ad91fa876f1c7c39071a0823"
+  integrity sha512-lFVbvaE9vMck8qz9j+y6o7vsyc1vZhdqzWu+Wp/nlnOCi9zAErc31QMkZKYUGMNLLzxOO4YIBAUPndTPah8HFg==
 
 import-fresh@^3.2.1:
   version "3.3.1"
@@ -3556,11 +3547,6 @@ negotiator@0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.3.tgz#58e323a72fedc0d6f9cd4d31fe49f51479590ccd"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
-
-negotiator@^0.6.3:
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.4.tgz#777948e2452651c570b712dd01c23e262713fff7"
-  integrity sha512-myRT3DiWPHqho5PrJaIRyaMv2kgYf0mUVgBNOYMuCH5Ki1yEiQaf/ZJuQ62nvpc44wL5WDbTX7yGJi1Neevw8w==
 
 newtype-ts@^0.3.5:
   version "0.3.5"
@@ -4549,13 +4535,13 @@ signal-exit@^4.0.1:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-4.1.0.tgz#952188c1cbd546070e2dd20d0f41c0ae0530cb04"
   integrity sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==
 
-slice-machine-ui@^2.7.1:
-  version "2.14.2"
-  resolved "https://registry.yarnpkg.com/slice-machine-ui/-/slice-machine-ui-2.14.2.tgz#9793c153a45f85d6b5b58cba8d60c6981c2adf39"
-  integrity sha512-xxJURmCYH5ccTIsPi142QJ2YK6k6Osv7Z11ufttxn2QcI4/rVO13i12dXwmERpOQQBJmePv5h4hoZaba93hKNw==
+slice-machine-ui@^2.15.0:
+  version "2.15.0"
+  resolved "https://registry.yarnpkg.com/slice-machine-ui/-/slice-machine-ui-2.15.0.tgz#e2a3462f99639ab44b3f16e1a9d54b2046f44601"
+  integrity sha512-p0fAP5J0nq+qer+xhchB43Z8JT6CQpVEmaCHocWC+PepAoD7pCcQgsf7XwLo2dClwK80zk3Is7GozCWsBEGLBg==
   dependencies:
-    "@slicemachine/manager" "0.24.9"
-    start-slicemachine "0.12.51"
+    "@slicemachine/manager" "0.24.10"
+    start-slicemachine "0.12.52"
 
 socialbee-ui@0.1.8:
   version "0.1.8"
@@ -4624,14 +4610,14 @@ stable-hash@^0.0.5:
   resolved "https://registry.yarnpkg.com/stable-hash/-/stable-hash-0.0.5.tgz#94e8837aaeac5b4d0f631d2972adef2924b40269"
   integrity sha512-+L3ccpzibovGXFK+Ap/f8LOS0ahMrHTf3xu7mMLSpEGU0EO9ucaysSylKo9eRDFNhWve/y275iPmIZ4z39a9iA==
 
-start-slicemachine@0.12.51:
-  version "0.12.51"
-  resolved "https://registry.yarnpkg.com/start-slicemachine/-/start-slicemachine-0.12.51.tgz#9914b2d716efd261cf9a585a0e5c53b88cc7ea6a"
-  integrity sha512-+++0ptMgKF+LgKw0Q8+lwAue0cSpQuKaGOOOV0dvqsU+vs8I6UvXXJa1nW1Jz7Ei11n06PsPwDZvw0azp3jTTA==
+start-slicemachine@0.12.52:
+  version "0.12.52"
+  resolved "https://registry.yarnpkg.com/start-slicemachine/-/start-slicemachine-0.12.52.tgz#5f42bc7adacb9d6e6d8da9ecadf25cc885cca27f"
+  integrity sha512-eu9W54Yq1rqPns7CwSyeb/wC+GhCUsbITohl4woWNla1bBKNU82TLhY5SQCRmTZ2PLeQvTQNJ3OdH5o3aVIhJw==
   dependencies:
     "@prismicio/mocks" "2.12.0"
     "@prismicio/types-internal" "3.8.0"
-    "@slicemachine/manager" "0.24.9"
+    "@slicemachine/manager" "0.24.10"
     body-parser "^1.20.3"
     chalk "^4.1.2"
     cors "^2.8.5"
@@ -5014,7 +5000,7 @@ tsconfig-paths@^3.15.0:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tslib@2, tslib@^2.0.3, tslib@^2.1.0, tslib@^2.3.1, tslib@^2.4.0, tslib@^2.4.1, tslib@^2.5.0:
+tslib@^2.0.3, tslib@^2.1.0, tslib@^2.3.1, tslib@^2.4.0, tslib@^2.4.1, tslib@^2.5.0:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==

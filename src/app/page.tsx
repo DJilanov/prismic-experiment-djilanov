@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { SliceZone } from '@prismicio/react';
 import * as prismic from '@prismicio/client';
 import { createClient } from '@/prismicio';
-import { components } from '../../slices';
+import { components } from '../slices';
 import { getLocales } from '@/utils/getLocales';
 import { notFound } from 'next/navigation';
 

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { SliceZone } from '@prismicio/react';
 import * as prismic from '@prismicio/client';
 import { createClient } from '@/prismicio';
-import { components } from '../../../slices';
+import { components } from '../../slices';
 import { getLocales } from '@/utils/getLocales';
 
 type Params = { uid: string; lang: string };

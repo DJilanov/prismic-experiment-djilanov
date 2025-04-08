@@ -1,7 +1,7 @@
 {
   "id": "company_carousel",
   "type": "SharedSlice",
-  "name": "CompanyCarousel",
+  "name": "CustomerLogos",
   "description": "A carousel displaying company logos",
   "variations": [
     {
