@@ -1,0 +1,54 @@
+{
+  "id": "question",
+  "type": "SharedSlice",
+  "name": "Question",
+  "description": "An expandable FAQ question and answer",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default question and answer",
+      "imageUrl": "",
+      "primary": {
+        "question": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Question",
+            "placeholder": "Question text (desktop)",
+            "allowTargetBlank": true,
+            "multi": "heading5"
+          }
+        },
+        "question_mobile": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Question (Mobile)",
+            "placeholder": "Question text (mobile)",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "answer": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Answer",
+            "placeholder": "Answer text",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "start_open": {
+          "type": "Boolean",
+          "config": {
+            "label": "Start Open",
+            "placeholder": "Should this question be expanded by default",
+            "default_value": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

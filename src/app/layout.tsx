@@ -8,6 +8,8 @@ import { ClientScripts } from '@/sections/client-scripts';
 import { headers } from 'next/headers';
 import HeaderSection from '@/sections/header-section';
 import FlowbiteInit from '@/components/flowbite/init';
+import { Footer } from '@/sections/Footer/Footer';
+import { getServerTranslations } from '@/i18n/server';
 
 config.autoAddCss = false;
 
@@ -16,13 +18,14 @@ export const metadata: Metadata = {
   description: 'Ihr möchtet in Eurem Unternehmen Flüchtlinge oder Migrant*innen einstellen? Wir rekrutieren seit über 8 Jahren erfolgreich diverse Talente',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   const headersList = headers();
   const device = headersList.get('device');
+	const { t } = await getServerTranslations('translation');
 
   return (
     <html lang='en'>
@@ -31,6 +34,7 @@ export default function RootLayout({
           <HeaderSection />
           <div className='h-10'/>
           {children}
+          <Footer t={t} logoSrc='/logo.png' whatsappSrc='/whatsapp.png' getLink={(linkObj: { de: string; en: string }) => (linkObj.de)}/>
         </main>
       </body>
       <ClientScripts desktop={device === 'desktop'} />

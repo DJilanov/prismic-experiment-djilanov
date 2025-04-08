@@ -1,0 +1,65 @@
+{
+  "id": "faq_section",
+  "type": "SharedSlice",
+  "name": "FAQSection",
+  "description": "A section containing multiple FAQ questions",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default FAQ section",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "FAQ section title",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "Section description text",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "fetch_questions": {
+          "type": "Boolean",
+          "config": {
+            "label": "Fetch Questions",
+            "placeholder": "Fetch questions from a central FAQ document",
+            "default_value": false
+          }
+        },
+        "faq_content_type": {
+          "type": "Text",
+          "config": {
+            "label": "FAQ Content Type",
+            "placeholder": "Content type ID to fetch questions from"
+          }
+        }
+      },
+      "items": {
+        "question_slice": {
+          "type": "Slice",
+          "fieldset": "Question",
+          "config": {
+            "choices": {
+              "question": {
+                "type": "Slice",
+                "fieldset": "Question"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

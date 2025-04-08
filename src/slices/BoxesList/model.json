@@ -1,0 +1,36 @@
+{
+  "id": "boxes_list",
+  "type": "SharedSlice",
+  "name": "BoxesList",
+  "description": "A list of colored boxes containing text",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default boxes list",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Title for the boxes list",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        }
+      },
+      "items": {
+        "box_text": {
+          "type": "Text",
+          "config": {
+            "label": "Box Text",
+            "placeholder": "Text to display in the box"
+          }
+        }
+      }
+    }
+  ]
+}

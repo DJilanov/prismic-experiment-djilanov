@@ -1,0 +1,102 @@
+{
+  "id": "talent_section",
+  "type": "SharedSlice",
+  "name": "TalentSection",
+  "description": "A section displaying talent information in three columns",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default talent section with three columns of information",
+      "imageUrl": "",
+      "primary": {
+        "first_title": {
+          "type": "Text",
+          "config": {
+            "label": "First Title",
+            "placeholder": "Title for the first column"
+          }
+        },
+        "first_info": {
+          "type": "StructuredText",
+          "config": {
+            "label": "First Information",
+            "placeholder": "Information for first column (desktop)",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item"
+          }
+        },
+        "first_info_mobile": {
+          "type": "StructuredText",
+          "config": {
+            "label": "First Information (Mobile)",
+            "placeholder": "Information for first column (mobile)",
+            "allowTargetBlank": true,
+            "multi": "heading5,strong,em,hyperlink,list-item"
+          }
+        },
+        "second_title": {
+          "type": "Text",
+          "config": {
+            "label": "Second Title",
+            "placeholder": "Title for the second column"
+          }
+        },
+        "second_info": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Information",
+            "placeholder": "Information for second column (desktop)",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item"
+          }
+        },
+        "second_info_mobile": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Information (Mobile)",
+            "placeholder": "Information for second column (mobile)",
+            "allowTargetBlank": true,
+            "multi": "heading5,strong,em,hyperlink,list-item"
+          }
+        },
+        "third_title": {
+          "type": "Text",
+          "config": {
+            "label": "Third Title",
+            "placeholder": "Title for the third column"
+          }
+        },
+        "third_info": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Third Information",
+            "placeholder": "Information for third column (desktop)",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item"
+          }
+        },
+        "third_info_mobile": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Third Information (Mobile)",
+            "placeholder": "Information for third column (mobile)",
+            "allowTargetBlank": true,
+            "multi": "heading5,strong,em,hyperlink,list-item"
+          }
+        },
+        "stripe_image": {
+          "type": "Image",
+          "config": {
+            "label": "Stripe Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

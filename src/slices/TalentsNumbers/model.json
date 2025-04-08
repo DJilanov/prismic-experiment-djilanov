@@ -1,0 +1,109 @@
+{
+  "id": "talents_numbers",
+  "type": "SharedSlice",
+  "name": "TalentsNumbers",
+  "description": "A section displaying three key numbers with descriptions",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default talent numbers section with three statistics",
+      "imageUrl": "",
+      "primary": {
+        "first_number": {
+          "type": "Text",
+          "config": {
+            "label": "First Number",
+            "placeholder": "First statistic number (e.g. '95%')"
+          }
+        },
+        "first_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "First Text",
+            "placeholder": "Description for first statistic (desktop)",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading6"
+          }
+        },
+        "first_text_mobile": {
+          "type": "StructuredText",
+          "config": {
+            "label": "First Text (Mobile)",
+            "placeholder": "Description for first statistic (mobile)",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading4"
+          }
+        },
+        "second_number": {
+          "type": "Text",
+          "config": {
+            "label": "Second Number",
+            "placeholder": "Second statistic number (e.g. '80%')"
+          }
+        },
+        "second_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Text",
+            "placeholder": "Description for second statistic (desktop)",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading6"
+          }
+        },
+        "second_text_mobile": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Text (Mobile)",
+            "placeholder": "Description for second statistic (mobile)",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading4"
+          }
+        },
+        "third_number": {
+          "type": "Text",
+          "config": {
+            "label": "Third Number",
+            "placeholder": "Third statistic number (e.g. '70%')"
+          }
+        },
+        "third_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Third Text",
+            "placeholder": "Description for third statistic (desktop)",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading6"
+          }
+        },
+        "third_text_mobile": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Third Text (Mobile)",
+            "placeholder": "Description for third statistic (mobile)",
+            "allowTargetBlank": true,
+            "multi": "paragraph,heading4"
+          }
+        },
+        "plus_image": {
+          "type": "Image",
+          "config": {
+            "label": "Plus Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_alt": {
+          "type": "Text",
+          "config": {
+            "label": "Image Alt Text",
+            "placeholder": "Alternative text for the plus image"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "diversity_section",
+  "type": "SharedSlice",
+  "name": "DiversitySection",
+  "description": "A section displaying diversity information with images and description sections",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default diversity section",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Section title",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "header": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header",
+            "placeholder": "Section header",
+            "allowTargetBlank": true,
+            "multi": "heading6"
+          }
+        },
+        "section_id": {
+          "type": "Text",
+          "config": {
+            "label": "Section ID",
+            "placeholder": "HTML ID for the section (default: diversity-section)"
+          }
+        },
+        "boxes_title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Boxes Title",
+            "placeholder": "Title for the boxes list section",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "boxes": {
+          "type": "Text",
+          "config": {
+            "label": "Boxes",
+            "placeholder": "Comma-separated list of box texts",
+            "description": "Example: Box 1, Box 2, Box 3"
+          }
+        },
+        "description_sections": {
+          "type": "Group",
+          "config": {
+            "label": "Description Sections",
+            "fields": {
+              "description_title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "Section title",
+                  "allowTargetBlank": true,
+                  "multi": "heading4"
+                }
+              },
+              "description_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "Section description",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_alt": {
+          "type": "Text",
+          "config": {
+            "label": "Image Alt Text",
+            "placeholder": "Alternative text for the image"
+          }
+        }
+      }
+    }
+  ]
+}

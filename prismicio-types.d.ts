@@ -151,10 +151,7 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-type ProjectDocumentDataSlicesSlice =
-  | CallToActionSlice
-  | AlternateGridSlice
-  | CustomerLogosSlice;
+type ProjectDocumentDataSlicesSlice = CallToActionSlice | AlternateGridSlice;
 
 /**
  * Content for Project documents

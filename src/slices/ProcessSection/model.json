@@ -1,0 +1,103 @@
+{
+  "id": "process_section",
+  "type": "SharedSlice",
+  "name": "ProcessSection",
+  "description": "A section displaying a process with numbered steps",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default process section with steps and image",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Section title",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "title_href": {
+          "type": "Link",
+          "config": {
+            "label": "Title Link",
+            "placeholder": "Optional link for the title",
+            "allowTargetBlank": true
+          }
+        },
+        "header": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header",
+            "placeholder": "Section header",
+            "allowTargetBlank": true,
+            "multi": "heading6"
+          }
+        },
+        "section_id": {
+          "type": "Text",
+          "config": {
+            "label": "Section ID",
+            "placeholder": "Optional HTML ID for the section"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Process Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_alt": {
+          "type": "Text",
+          "config": {
+            "label": "Image Alt Text",
+            "placeholder": "Alternative text for the image"
+          }
+        }
+      },
+      "items": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Step Title",
+            "placeholder": "Title for this process step",
+            "allowTargetBlank": true,
+            "multi": "heading4,heading3"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Step Subtitle",
+            "placeholder": "Optional subtitle for this step",
+            "allowTargetBlank": true,
+            "multi": "paragraph"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Step Description",
+            "placeholder": "Description of this process step",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "href": {
+          "type": "Link",
+          "config": {
+            "label": "Step Link",
+            "placeholder": "Optional link for this step",
+            "allowTargetBlank": true
+          }
+        }
+      }
+    }
+  ]
+}

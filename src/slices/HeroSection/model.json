@@ -1,0 +1,115 @@
+{
+  "id": "hero_section",
+  "type": "SharedSlice",
+  "name": "HeroSection",
+  "description": "A hero section with background image, title, and description",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default hero section with background image",
+      "imageUrl": "",
+      "primary": {
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Hero title",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "Hero description text",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item"
+          }
+        },
+        "stripe_image": {
+          "type": "Image",
+          "config": {
+            "label": "Stripe Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "stripe_style": {
+          "type": "Text",
+          "config": {
+            "label": "Stripe Style (Desktop)",
+            "placeholder": "JSON object with CSS styles for the stripe (desktop)",
+            "description": "Example: {\"top\": \"50px\", \"left\": \"20px\", \"width\": \"300px\", \"zIndex\": -1}"
+          }
+        },
+        "stripe_style_phone": {
+          "type": "Text",
+          "config": {
+            "label": "Stripe Style (Mobile)",
+            "placeholder": "JSON object with CSS styles for the stripe (mobile)",
+            "description": "Example: {\"top\": \"30px\", \"left\": \"10px\", \"width\": \"150px\", \"zIndex\": -1}"
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": "Text for the primary button"
+          }
+        },
+        "more_text": {
+          "type": "Text",
+          "config": {
+            "label": "More Text",
+            "placeholder": "Text for the 'learn more' link"
+          }
+        },
+        "on_submit_id": {
+          "type": "Text",
+          "config": {
+            "label": "Submit Button Target ID",
+            "placeholder": "Element ID to scroll to when button is clicked"
+          }
+        },
+        "on_more_id": {
+          "type": "Text",
+          "config": {
+            "label": "More Button Target ID",
+            "placeholder": "Element ID to scroll to when 'learn more' is clicked"
+          }
+        },
+        "background_position": {
+          "type": "Select",
+          "config": {
+            "label": "Background Position",
+            "placeholder": "CSS background position for desktop view",
+            "options": [
+              "top",
+              "center",
+              "bottom",
+              "left",
+              "right",
+              "top-left",
+              "top-right",
+              "bottom-left",
+              "bottom-right"
+            ]
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

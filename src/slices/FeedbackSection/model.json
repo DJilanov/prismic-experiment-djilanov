@@ -1,0 +1,79 @@
+{
+  "id": "feedback_section",
+  "type": "SharedSlice",
+  "name": "FeedbackSection",
+  "description": "A section displaying user testimonials or feedback",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default feedback section with testimonials",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "Section title (desktop)",
+            "allowTargetBlank": true,
+            "multi": "heading6"
+          }
+        },
+        "title_mobile": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title (Mobile)",
+            "placeholder": "Section title (mobile)",
+            "allowTargetBlank": true,
+            "multi": "heading4"
+          }
+        },
+        "section_id": {
+          "type": "Text",
+          "config": {
+            "label": "Section ID",
+            "placeholder": "Optional HTML ID for the section"
+          }
+        }
+      },
+      "items": {
+        "comment": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testimonial Comment",
+            "placeholder": "Feedback or testimonial text",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item"
+          }
+        },
+        "person_image": {
+          "type": "Image",
+          "config": {
+            "label": "Person Image",
+            "constraint": {
+              "width": 128,
+              "height": 128
+            },
+            "thumbnails": []
+          }
+        },
+        "person_name": {
+          "type": "Text",
+          "config": {
+            "label": "Person Name",
+            "placeholder": "Name of the person giving feedback"
+          }
+        },
+        "person_position": {
+          "type": "Text",
+          "config": {
+            "label": "Person Position",
+            "placeholder": "Job title or position of the person"
+          }
+        }
+      }
+    }
+  ]
+}
