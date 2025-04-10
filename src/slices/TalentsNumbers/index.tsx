@@ -9,7 +9,7 @@ type TalentsNumbersSliceProps = {
 
 function TalentsNumbersSlice({ slice, context }: TalentsNumbersSliceProps) {
   return (
-    <section className="w-screen max-w-[1440px] lg:px-[60px] px-2">
+    <section className="w-screen lg:px-[60px] px-2">
       <div className="bg-primary-400 py-6 px-5 rounded-[12px] lg:px-[60px] lg:py-[56px] lg:rounded-[16px] flex lg:flex-row flex-col">
         <div className="flex flex-1 flex-col lg:py-4 gap-3 lg:gap-4 relative">
           <h1>{slice.primary.first_number}</h1>

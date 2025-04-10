@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import "../../node_modules/@glidejs/glide/dist/css/glide.core.css";
+
+.text-white * {
+  color: white;
+}

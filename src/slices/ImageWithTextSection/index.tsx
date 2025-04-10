@@ -14,7 +14,7 @@ function ImageWithTextSectionSlice({ slice, context, children }: ImageWithTextSe
   return (
     <section
       id={slice.primary.section_id || undefined}
-      className="w-full max-w-[1440px] px-5 py-14 lg:px-10 lg:py-[120px] xl:p-[120px] flex flex-col gap-10 dark:text-gray-300"
+      className="w-full px-5 py-14 lg:px-10 lg:py-[120px] xl:p-[120px] flex flex-col gap-10 dark:text-gray-300"
     >
       <div className={`flex flex-col ${imagePosition === 'right' ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-3 lg:gap-10`}>
         <div className="flex-1 min-w-0 mb-2 hidden lg:block">
@@ -81,7 +81,7 @@ export const ImageWithTextSection: React.FC<ImageWithTextSectionProps> = ({
   return (
     <section
       id={id}
-      className="w-full max-w-[1440px] px-5 py-14 lg:px-10 lg:py-[120px] xl:p-[120px] flex flex-col gap-10 dark:text-gray-300"
+      className="w-full px-5 py-14 lg:px-10 lg:py-[120px] xl:p-[120px] flex flex-col gap-10 dark:text-gray-300"
     >
       <div className={`flex flex-col ${imagePosition === 'right' ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-3 lg:gap-10`}>
         <div className="flex-1 min-w-0 mb-2 hidden lg:block">

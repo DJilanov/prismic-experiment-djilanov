@@ -1,11 +1,34 @@
+import { getServerTranslations } from "@/i18n/server";
 import { type Content, isFilled } from "@prismicio/client";
 import { PrismicNextLink, PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
-export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice>;
+export type CallToActionProps = SliceComponentProps<Content.CallToActionSlice | any>;
 
-const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
+const CallToAction = async ({ slice }: CallToActionProps) => {
+  const { language } = await getServerTranslations('translation');
+  const isGerman = language === 'de';
   const alignment = slice.variation === "alignLeft" ? "left" : "center";
+
+  // Select the appropriate content fields based on language
+  const titleField = isGerman 
+    ? (isFilled.richText(slice.primary.title_de) ? slice.primary.title_de : slice.primary.title)
+    : (isFilled.richText(slice.primary.title_en) ? slice.primary.title_en : slice.primary.title);
+
+  const paragraphField = isGerman
+    ? (isFilled.richText(slice.primary.paragraph_de) ? slice.primary.paragraph_de : slice.primary.paragraph)
+    : (isFilled.richText(slice.primary.paragraph_en) ? slice.primary.paragraph_en : slice.primary.paragraph);
+
+  const buttonLinkField = isGerman
+    ? (isFilled.link(slice.primary.buttonLink_de) ? slice.primary.buttonLink_de : slice.primary.buttonLink)
+    : (isFilled.link(slice.primary.buttonLink_en) ? slice.primary.buttonLink_en : slice.primary.buttonLink);
+
+  const buttonLabelText = isGerman
+    ? (slice.primary.buttonLabel_de || slice.primary.buttonLabel || "Mehr erfahren...")
+    : (slice.primary.buttonLabel_en || slice.primary.buttonLabel || "Learn more...");
+
+  // Use single shared image (no language-specific images)
+  const imageField = slice.primary.image;
 
   return (
     <section
@@ -14,30 +37,30 @@ const CallToAction = ({ slice }: CallToActionProps): JSX.Element => {
       className="es-bounded es-call-to-action"
     >
       <div className="es-bounded__content es-call-to-action__content">
-        {isFilled.image(slice.primary.image) && (
+        {isFilled.image(imageField) && (
           <PrismicNextImage
             className="es-call-to-action__image"
-            field={slice.primary.image}
+            field={imageField}
           />
         )}
         <div className="es-call-to-action__content">
-          {isFilled.richText(slice.primary.title) && (
+          {isFilled.richText(titleField) && (
             <div className="es-call-to-action__content__heading">
-              <PrismicRichText field={slice.primary.title} />
+              <PrismicRichText field={titleField} />
             </div>
           )}
-          {isFilled.richText(slice.primary.paragraph) && (
+          {isFilled.richText(paragraphField) && (
             <div className="es-call-to-action__content__paragraph">
-              <PrismicRichText field={slice.primary.paragraph} />
+              <PrismicRichText field={paragraphField} />
             </div>
           )}
         </div>
-        {isFilled.link(slice.primary.buttonLink) && (
+        {isFilled.link(buttonLinkField) && (
           <PrismicNextLink
             className="es-call-to-action__button"
-            field={slice.primary.buttonLink}
+            field={buttonLinkField}
           >
-            {slice.primary.buttonLabel || "Learn more…"}
+            {buttonLabelText}
           </PrismicNextLink>
         )}
       </div>

@@ -17,7 +17,7 @@ function FeedbackSectionSlice({ slice, context }: FeedbackSectionSliceProps) {
   const secondTestimonial = hasSecondTestimonial ? slice.items[1] : null;
 
   return (
-    <section className="w-screen max-w-[1440px] py-14 lg:p-[120px] flex flex-col gap-8 dark:text-gray-300">
+    <section className="w-screen py-14 lg:p-[120px] flex flex-col gap-8 dark:text-gray-300">
       <div className="text-overheader px-0 hidden lg:block dark:text-gray-300">
         <PrismicRichText field={slice.primary.title} />
       </div>
@@ -113,7 +113,7 @@ export const FeedbackSection: React.FC<FeedbackSectionProps> = ({
   comment2 
 }) => {
   return (
-    <section className="w-screen max-w-[1440px] py-14 lg:p-[120px] flex flex-col gap-8 dark:text-gray-300">
+    <section className="w-screen py-14 lg:p-[120px] flex flex-col gap-8 dark:text-gray-300">
       <h6 className="text-overheader px-0 hidden lg:block dark:text-gray-300">{title}</h6>
       <h4 className="text-overheader px-5 lg:hidden dark:text-gray-300">{title}</h4>
       <div className="flex px-[10px] lg:px-0 lg:flex-row flex-col gap-9">

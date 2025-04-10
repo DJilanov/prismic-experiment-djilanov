@@ -1,26 +1,44 @@
 import React from "react";
 import { PrismicRichText } from '@prismicio/react';
+import { getServerTranslations } from "@/i18n/server";
 
 type BoxesListSliceProps = {
   slice: any;
   context?: any;
 }
 
-export function BoxesListSlice({ slice, context }: BoxesListSliceProps) {
+export async function BoxesListSlice({ slice, context }: BoxesListSliceProps) {
+  const { language } = await getServerTranslations('translation');
+  const isGerman = language === 'de';
+  
+  // Select the appropriate title field based on language
+  const titleField = isGerman 
+    ? slice.primary.title_de || slice.primary.title 
+    : slice.primary.title_en || slice.primary.title;
+
   return (
-    <div className="mt-10 lg:mt-16">
+    <div className="max-w-[1024px] mt-10 lg:mt-16 items-center" style={{
+      margin: '50px auto',
+    }}>
       <div className="mb-6">
-        <PrismicRichText field={slice.primary.title} />
+        <PrismicRichText field={titleField} />
       </div>
       <div className="flex flex-wrap gap-3 lg:gap-6">
-        {slice.items.map((item: any, index: number) => (
-          <div
-            key={index}
-            className="px-4 py-3 rounded-xl bg-primary-400 flex items-center justify-center"
-          >
-            {item.box_text}
-          </div>
-        ))}
+        {slice.items.map((item: any, index: number) => {
+          // Select the appropriate box text based on language
+          const boxText = isGerman
+            ? item.box_text_de || item.box_text
+            : item.box_text_en || item.box_text;
+            
+          return (
+            <div
+              key={index}
+              className="px-4 py-3 rounded-xl bg-primary-400 flex items-center justify-center"
+            >
+              {boxText}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -30,9 +48,12 @@ export function BoxesListSlice({ slice, context }: BoxesListSliceProps) {
 interface BoxesListProps {
   title: string;
   boxes: string[];
+  language?: string;
 }
 
-export const BoxesList: React.FC<BoxesListProps> = ({ title, boxes }) => {
+export const BoxesList: React.FC<BoxesListProps> = ({ title, boxes, language = 'en' }) => {
+  const isGerman = language === 'de';
+  
   return (
     <div className="mt-10 lg:mt-16">
       <h3 className="mb-6">{title}</h3>
@@ -49,4 +70,5 @@ export const BoxesList: React.FC<BoxesListProps> = ({ title, boxes }) => {
     </div>
   );
 };
+
 export default BoxesListSlice;

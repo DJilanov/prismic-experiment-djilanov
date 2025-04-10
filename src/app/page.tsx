@@ -47,8 +47,8 @@ export default async function Index({
   const locales = await getLocales(home, client);
 
   return (
-    <>
+    <div className='pb-20'>
       <SliceZone slices={home.data.slices} components={components} />
-    </>
+    </div>
   );
 }

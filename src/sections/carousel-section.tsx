@@ -41,10 +41,12 @@ export default function CompanyCarousel({ className = '', header, images }: Prop
 		};
 	}, [images.length]);
 
+	console.log('---images: ', images);
+
 	return (
-		<section className='w-screen max-w-[1440px] lg:py-16 py-8 px-5 lg:px-[120px] flex flex-col gap-6 lg:gap-8'>
-			<h6 className='text-overheader dark:text-gray-300 hidden lg:block'>{header}</h6>
-			<h4 className='text-overheader dark:text-gray-300 lg:hidden'>{header}</h4>
+		<section className='w-screen lg:py-16 py-8 px-5 lg:px-[120px] flex flex-col gap-6 lg:gap-8'>
+			<h6 className='text-overheader dark:text-gray-300 hidden lg:block ml-16'>{header}</h6>
+			<h4 className='text-overheader dark:text-gray-300 lg:hidden ml-16'>{header}</h4>
 
 			{/* The container ensures only a fixed number of icons are visible */}
 			<div className={`relative overflow-hidden ${className}`} style={{ width: '100%' }}>
@@ -54,14 +56,14 @@ export default function CompanyCarousel({ className = '', header, images }: Prop
 						transform: `translateX(-${offset * (100 / visibleIcons)}%)`,
 					}}
 				>
-					{[...images, ...images].map((image, index) => (
+					{images.map((img: any, index) => (
 						<div
 							// eslint-disable-next-line react/no-array-index-key
 							key={index}
 							className='h-full flex justify-center items-center'
 							style={{ minWidth: `${100 / visibleIcons}%` }}
 						>
-							<Image src={image.image} alt={image.alt} width={90} height={40} draggable={false}/>
+							<Image src={img.image.url} alt={img.image.alt} width={90} height={40} draggable={false}/>
 						</div>
 					))}
 				</div>
