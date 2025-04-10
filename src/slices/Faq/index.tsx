@@ -1,41 +1,77 @@
 import React from "react";
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextImage } from '@prismicio/next';
+import { getServerTranslations } from "@/i18n/server";
+import { isFilled } from '@prismicio/client';
 import SectionBoxSlice, { SectionBox } from "../SectionBox";
 import BoxesListSlice, { BoxesList } from "../BoxesList";
 
-type DiversitySectionSliceProps = {
+type FAQSectionSliceProps = {
   slice: any;
   context?: any;
 }
 
-function DiversitySectionSlice({ slice, context }: DiversitySectionSliceProps) {
-  // Extract images from the slice
+async function FAQSectionSlice({ slice, context }: FAQSectionSliceProps) {
+  const { language } = await getServerTranslations('translation');
+  const isGerman = language === 'de';
+  
+  // Extract images from the slice - shared across languages
   const images = slice.items
     .filter((item: any) => item.image)
     .slice(0, 3); // Limit to 3 images
+  
+  // Select language-specific content for text
+  const titleField = isGerman
+    ? (isFilled.richText(slice.primary.title_de) ? slice.primary.title_de : slice.primary.title)
+    : (isFilled.richText(slice.primary.title_en) ? slice.primary.title_en : slice.primary.title);
+    
+  const headerField = isGerman
+    ? (isFilled.richText(slice.primary.header_de) ? slice.primary.header_de : slice.primary.header)
+    : (isFilled.richText(slice.primary.header_en) ? slice.primary.header_en : slice.primary.header);
+    
+  const boxesTitleField = isGerman
+    ? (isFilled.richText(slice.primary.boxes_title_de) ? slice.primary.boxes_title_de : slice.primary.boxes_title)
+    : (isFilled.richText(slice.primary.boxes_title_en) ? slice.primary.boxes_title_en : slice.primary.boxes_title);
+    
+  // Get language-specific description sections
+  let descriptionSections = slice.primary.description_sections || [];
+  
+  // If language-specific sections exist, use them
+  if (isGerman && slice.primary.description_sections_de && slice.primary.description_sections_de.length > 0) {
+    descriptionSections = slice.primary.description_sections_de;
+  } else if (!isGerman && slice.primary.description_sections_en && slice.primary.description_sections_en.length > 0) {
+    descriptionSections = slice.primary.description_sections_en;
+  }
   
   // Create a mock slice for the SectionBox
   const sectionBoxSlice = {
     id: `section-box-${slice.id}`,
     slice_type: 'section_box',
     primary: {
-      title: slice.primary.title,
-      header: slice.primary.header,
-      section_id: slice.primary.section_id || "diversity-section"
+      title: titleField,
+      header: headerField,
+      section_id: slice.primary.section_id || "faq-section"
     },
     items: []
   };
+  
+  // Get language-specific boxes
+  let boxes = slice.primary.boxes || '';
+  if (isGerman && slice.primary.boxes_de) {
+    boxes = slice.primary.boxes_de;
+  } else if (!isGerman && slice.primary.boxes_en) {
+    boxes = slice.primary.boxes_en;
+  }
   
   // Create a mock slice for the BoxesList
   const boxesListSlice = {
     id: `boxes-list-${slice.id}`,
     slice_type: 'boxes_list',
     primary: {
-      title: slice.primary.boxes_title
+      title: boxesTitleField
     },
-    items: slice.primary.boxes ? 
-      slice.primary.boxes.split(',').map((box: any) => ({ box_text: box.trim() })) : 
+    items: boxes ? 
+      boxes.split(',').map((box: string) => ({ box_text: box.trim() })) : 
       []
   };
 
@@ -86,7 +122,7 @@ function DiversitySectionSlice({ slice, context }: DiversitySectionSliceProps) {
           </div>
         </div>
         <div className="flex-1 flex flex-col gap-10">
-          {slice.primary.description_sections.map((section: any, index: number) => (
+          {descriptionSections.map((section: any, index: number) => (
             <div className="flex flex-col gap-2" key={index}>
               <div>
                 <PrismicRichText field={section.description_title} />
@@ -104,25 +140,27 @@ function DiversitySectionSlice({ slice, context }: DiversitySectionSliceProps) {
 }
 
 // For backward compatibility
-interface DiversitySectionProps {
+interface FAQSectionProps {
   title: string;
   titleBoxes: string;
   header: string;
   images: { src: string; alt: string }[];
   descriptionSections: { title: string; description: string }[];
   boxes: string[];
+  language?: string;
 }
 
-export const DiversitySection: React.FC<DiversitySectionProps> = ({
+export const FAQSection: React.FC<FAQSectionProps> = ({
   title,
   header,
   titleBoxes,
   images,
   descriptionSections,
   boxes,
+  language = 'en'
 }) => {
   return (
-    <SectionBox title={title} header={header} id="diversity-section">
+    <SectionBox title={title} header={header} id="faq-section">
       <div className="flex lg:flex-row flex-col gap-8 lg:gap-[36px]">
         <div className="flex flex-1">
           <div className="flex flex-1 flex-col lg:pr-9 gap-9 max-h-[581px]">
@@ -171,4 +209,5 @@ export const DiversitySection: React.FC<DiversitySectionProps> = ({
     </SectionBox>
   );
 };
-export default DiversitySectionSlice;
+
+export default FAQSectionSlice;
