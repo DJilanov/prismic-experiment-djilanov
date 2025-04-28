@@ -2,22 +2,67 @@
   "id": "text_with_image_inversed",
   "type": "SharedSlice",
   "name": "TextWithImageInversed",
-  "description": "TextWithImageInversed",
+  "description": "A section with an image on the left and text content on the right",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "TextWithImageInversed",
+      "description": "Default text with image inversed",
       "primary": {
+        "header": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header",
+            "placeholder": "Section header (default language)",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "header_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header (German)",
+            "placeholder": "Section header in German",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "header_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header (English)",
+            "placeholder": "Section header in English",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
         "text": {
           "type": "StructuredText",
           "config": {
-            "label": "hello there",
-            "placeholder": "asd",
+            "label": "Text",
+            "placeholder": "Main text content (default language)",
             "allowTargetBlank": true,
-            "multi": "paragraph,heading1,heading2,heading3,strong,em,hyperlink,list-item,o-list-item"
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "text_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text (German)",
+            "placeholder": "Main text content in German",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "text_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text (English)",
+            "placeholder": "Main text content in English",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
           }
         },
         "image": {
@@ -25,67 +70,160 @@
           "config": {
             "label": "Image",
             "constraint": {
-              "width": 1000,
-              "height": 1200
+              "width": 900,
+              "height": 600
             },
             "thumbnails": []
           }
+        },
+        "image_alt": {
+          "type": "Text",
+          "config": {
+            "label": "Image Alt Text",
+            "placeholder": "Alternative text for the image (default language)"
+          }
+        },
+        "image_alt_de": {
+          "type": "Text",
+          "config": {
+            "label": "Image Alt Text (German)",
+            "placeholder": "Alternative text for the image in German"
+          }
+        },
+        "image_alt_en": {
+          "type": "Text",
+          "config": {
+            "label": "Image Alt Text (English)",
+            "placeholder": "Alternative text for the image in English"
+          }
         }
       },
-      "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "items": {}
     },
     {
       "id": "withButton",
       "name": "With Button",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "TextWithImageInversed",
+      "description": "Text with image inversed and a call-to-action button",
       "primary": {
         "header": {
           "type": "StructuredText",
           "config": {
-            "label": "Text",
-            "placeholder": "",
+            "label": "Header",
+            "placeholder": "Section header (default language)",
             "allowTargetBlank": true,
-            "type": "heading1"
+            "single": "heading2"
+          }
+        },
+        "header_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header (German)",
+            "placeholder": "Section header in German",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "header_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header (English)",
+            "placeholder": "Section header in English",
+            "allowTargetBlank": true,
+            "single": "heading2"
           }
         },
         "text": {
           "type": "StructuredText",
           "config": {
             "label": "Text",
-            "placeholder": "",
+            "placeholder": "Main text content (default language)",
             "allowTargetBlank": true,
-            "type": "paragraph"
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "text_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text (German)",
+            "placeholder": "Main text content in German",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "text_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text (English)",
+            "placeholder": "Main text content in English",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
           }
         },
         "buttonLink": {
           "type": "Link",
           "config": {
             "label": "Button Link",
-            "placeholder": "",
-            "select": null
+            "placeholder": "Link for the call-to-action button",
+            "allowTargetBlank": true
           }
         },
         "buttonText": {
           "type": "Text",
           "config": {
             "label": "Button Text",
-            "placeholder": ""
+            "placeholder": "Text for the button (default language, defaults to 'Learn more')"
+          }
+        },
+        "buttonText_de": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text (German)",
+            "placeholder": "Text for the button in German (defaults to 'Mehr erfahren')"
+          }
+        },
+        "buttonText_en": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text (English)",
+            "placeholder": "Text for the button in English (defaults to 'Learn more')"
           }
         },
         "image": {
           "type": "Image",
           "config": {
             "label": "Image",
-            "constraint": {},
+            "constraint": {
+              "width": 900,
+              "height": 600
+            },
             "thumbnails": []
+          }
+        },
+        "image_alt": {
+          "type": "Text",
+          "config": {
+            "label": "Image Alt Text",
+            "placeholder": "Alternative text for the image (default language)"
+          }
+        },
+        "image_alt_de": {
+          "type": "Text",
+          "config": {
+            "label": "Image Alt Text (German)",
+            "placeholder": "Alternative text for the image in German"
+          }
+        },
+        "image_alt_en": {
+          "type": "Text",
+          "config": {
+            "label": "Image Alt Text (English)",
+            "placeholder": "Alternative text for the image in English"
           }
         }
       },
-      "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "items": {}
     }
   ]
 }

@@ -8,90 +8,242 @@
       "id": "default",
       "name": "Default",
       "docURL": "...",
-      "version": "initial",
-      "description": "Default talent section with three columns of information",
-      "imageUrl": "",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Default Talent Section",
       "primary": {
         "first_title": {
           "type": "Text",
           "config": {
             "label": "First Title",
-            "placeholder": "Title for the first column"
+            "placeholder": "First column title (default language)"
+          }
+        },
+        "first_title_de": {
+          "type": "Text",
+          "config": {
+            "label": "First Title (German)",
+            "placeholder": "First column title in German"
+          }
+        },
+        "first_title_en": {
+          "type": "Text",
+          "config": {
+            "label": "First Title (English)",
+            "placeholder": "First column title in English"
           }
         },
         "first_info": {
           "type": "StructuredText",
           "config": {
-            "label": "First Information",
-            "placeholder": "Information for first column (desktop)",
+            "label": "First Info",
+            "placeholder": "First column information (default language)",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item"
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "first_info_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "First Info (German)",
+            "placeholder": "First column information in German",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "first_info_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "First Info (English)",
+            "placeholder": "First column information in English",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
           }
         },
         "first_info_mobile": {
           "type": "StructuredText",
           "config": {
-            "label": "First Information (Mobile)",
-            "placeholder": "Information for first column (mobile)",
+            "label": "First Info Mobile",
+            "placeholder": "First column information for mobile devices (default language)",
             "allowTargetBlank": true,
-            "multi": "heading5,strong,em,hyperlink,list-item"
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "first_info_mobile_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "First Info Mobile (German)",
+            "placeholder": "First column information for mobile devices in German",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "first_info_mobile_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "First Info Mobile (English)",
+            "placeholder": "First column information for mobile devices in English",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
           }
         },
         "second_title": {
           "type": "Text",
           "config": {
             "label": "Second Title",
-            "placeholder": "Title for the second column"
+            "placeholder": "Second column title (default language)"
+          }
+        },
+        "second_title_de": {
+          "type": "Text",
+          "config": {
+            "label": "Second Title (German)",
+            "placeholder": "Second column title in German"
+          }
+        },
+        "second_title_en": {
+          "type": "Text",
+          "config": {
+            "label": "Second Title (English)",
+            "placeholder": "Second column title in English"
           }
         },
         "second_info": {
           "type": "StructuredText",
           "config": {
-            "label": "Second Information",
-            "placeholder": "Information for second column (desktop)",
+            "label": "Second Info",
+            "placeholder": "Second column information (default language)",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item"
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "second_info_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Info (German)",
+            "placeholder": "Second column information in German",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "second_info_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Info (English)",
+            "placeholder": "Second column information in English",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
           }
         },
         "second_info_mobile": {
           "type": "StructuredText",
           "config": {
-            "label": "Second Information (Mobile)",
-            "placeholder": "Information for second column (mobile)",
+            "label": "Second Info Mobile",
+            "placeholder": "Second column information for mobile devices (default language)",
             "allowTargetBlank": true,
-            "multi": "heading5,strong,em,hyperlink,list-item"
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "second_info_mobile_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Info Mobile (German)",
+            "placeholder": "Second column information for mobile devices in German",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "second_info_mobile_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Info Mobile (English)",
+            "placeholder": "Second column information for mobile devices in English",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
           }
         },
         "third_title": {
           "type": "Text",
           "config": {
             "label": "Third Title",
-            "placeholder": "Title for the third column"
+            "placeholder": "Third column title (default language)"
+          }
+        },
+        "third_title_de": {
+          "type": "Text",
+          "config": {
+            "label": "Third Title (German)",
+            "placeholder": "Third column title in German"
+          }
+        },
+        "third_title_en": {
+          "type": "Text",
+          "config": {
+            "label": "Third Title (English)",
+            "placeholder": "Third column title in English"
           }
         },
         "third_info": {
           "type": "StructuredText",
           "config": {
-            "label": "Third Information",
-            "placeholder": "Information for third column (desktop)",
+            "label": "Third Info",
+            "placeholder": "Third column information (default language)",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item"
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "third_info_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Third Info (German)",
+            "placeholder": "Third column information in German",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "third_info_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Third Info (English)",
+            "placeholder": "Third column information in English",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
           }
         },
         "third_info_mobile": {
           "type": "StructuredText",
           "config": {
-            "label": "Third Information (Mobile)",
-            "placeholder": "Information for third column (mobile)",
+            "label": "Third Info Mobile",
+            "placeholder": "Third column information for mobile devices (default language)",
             "allowTargetBlank": true,
-            "multi": "heading5,strong,em,hyperlink,list-item"
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "third_info_mobile_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Third Info Mobile (German)",
+            "placeholder": "Third column information for mobile devices in German",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "third_info_mobile_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Third Info Mobile (English)",
+            "placeholder": "Third column information for mobile devices in English",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
           }
         },
         "stripe_image": {
           "type": "Image",
           "config": {
             "label": "Stripe Image",
-            "constraint": {},
+            "constraint": {
+              "width": 133,
+              "height": 34
+            },
             "thumbnails": []
           }
         }

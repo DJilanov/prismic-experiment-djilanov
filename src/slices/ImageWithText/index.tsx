@@ -1,11 +1,48 @@
 import { PrismicNextImage } from "@prismicio/next";
 import { type Content, isFilled } from "@prismicio/client";
 import { SliceComponentProps, PrismicRichText } from "@prismicio/react";
+import { getServerTranslations } from "@/i18n/server";
 
 export type AlternateGridProps =
-  SliceComponentProps<Content.AlternateGridSlice>;
+  SliceComponentProps<Content.AlternateGridSlice | any>;
 
-const AlternateGrid = ({ slice }: AlternateGridProps): JSX.Element => {
+const AlternateGrid = async ({ slice }: AlternateGridProps): Promise<JSX.Element> => {
+  const { language } = await getServerTranslations('translation');
+  const isGerman = language === 'de';
+  
+  // Get language-specific content
+  const eyebrowHeadline = isGerman
+    ? (slice.primary.eyebrowHeadline_de || slice.primary.eyebrowHeadline)
+    : (slice.primary.eyebrowHeadline_en || slice.primary.eyebrowHeadline);
+    
+  const titleField = isGerman
+    ? (isFilled.richText(slice.primary.title_de) ? slice.primary.title_de : slice.primary.title)
+    : (isFilled.richText(slice.primary.title_en) ? slice.primary.title_en : slice.primary.title);
+    
+  const descriptionField = isGerman
+    ? (isFilled.richText(slice.primary.description_de) ? slice.primary.description_de : slice.primary.description)
+    : (isFilled.richText(slice.primary.description_en) ? slice.primary.description_en : slice.primary.description);
+  
+  // Shared image across languages
+  const imageField = slice.primary.image;
+  
+  // Get language-specific items content
+  const items = slice.primary.items.map((item: any) => {
+    const itemTitleField = isGerman
+      ? (isFilled.richText(item.title_de) ? item.title_de : item.title)
+      : (isFilled.richText(item.title_en) ? item.title_en : item.title);
+      
+    const itemDescriptionField = isGerman
+      ? (isFilled.richText(item.description_de) ? item.description_de : item.description)
+      : (isFilled.richText(item.description_en) ? item.description_en : item.description);
+      
+    return {
+      ...item,
+      titleField: itemTitleField,
+      descriptionField: itemDescriptionField
+    };
+  });
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -16,15 +53,15 @@ const AlternateGrid = ({ slice }: AlternateGridProps): JSX.Element => {
         className={`
 					es-alternate-grid__content
 					${
-            isFilled.image(slice.primary.image)
+            isFilled.image(imageField)
               ? "es-alternate-grid__content--with-image"
               : ""
           }
         `}
       >
-        {isFilled.image(slice.primary.image) && (
+        {isFilled.image(imageField) && (
           <PrismicNextImage
-            field={slice.primary.image}
+            field={imageField}
             className={`
               				es-alternate-grid__image
 							${
@@ -37,34 +74,34 @@ const AlternateGrid = ({ slice }: AlternateGridProps): JSX.Element => {
         )}
         <div className="es-alternate-grid__primary-content">
           <div className="es-alternate-grid__primary-content__intro">
-            {isFilled.keyText(slice.primary.eyebrowHeadline) && (
+            {isFilled.keyText(eyebrowHeadline) && (
               <p className="es-alternate-grid__primary-content__intro__eyebrow">
-                {slice.primary.eyebrowHeadline}
+                {eyebrowHeadline}
               </p>
             )}
-            {isFilled.richText(slice.primary.title) && (
+            {isFilled.richText(titleField) && (
               <div className="es-alternate-grid__primary-content__intro__headline">
-                <PrismicRichText field={slice.primary.title} />
+                <PrismicRichText field={titleField} />
               </div>
             )}
-            {isFilled.richText(slice.primary.description) && (
+            {isFilled.richText(descriptionField) && (
               <div className="es-alternate-grid__primary-content__intro__description">
-                <PrismicRichText field={slice.primary.description} />
+                <PrismicRichText field={descriptionField} />
               </div>
             )}
           </div>
-          {slice.primary.items.length > 0 && (
+          {items.length > 0 && (
             <div className="es-alternate-grid__primary-content__items">
-              {slice.primary.items.map((item, i) => (
+              {items.map((item: any, i: number) => (
                 <div key={`item-${i + 1}`} className="es-alternate-grid__item">
-                  {isFilled.richText(item.title) && (
+                  {isFilled.richText(item.titleField) && (
                     <div className="es-alternate-grid__item__heading">
-                      <PrismicRichText field={item.title} />
+                      <PrismicRichText field={item.titleField} />
                     </div>
                   )}
-                  {isFilled.richText(item.description) && (
+                  {isFilled.richText(item.descriptionField) && (
                     <div className="es-alternate-grid__item__description">
-                      <PrismicRichText field={item.description} />
+                      <PrismicRichText field={item.descriptionField} />
                     </div>
                   )}
                 </div>

@@ -3,34 +3,98 @@ import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextImage } from '@prismicio/next';
 import { PrismicNextLink } from '@prismicio/next';
 import SectionBoxSlice, { SectionBox } from "../SectionBox";
+import { getServerTranslations } from '@/i18n/server';
+import { isFilled } from '@prismicio/client';
 
 type ProcessSectionSliceProps = {
   slice: any;
   context?: any;
 }
 
-function ProcessSectionSlice({ slice, context }: ProcessSectionSliceProps) {
-  const renderTitle = (step: any) => (
-    <div className="hidden lg:block">
-      <PrismicRichText field={step.title} />
-      {step.subtitle?.length > 0 && (
-        <span className="font-normal"> 
-          <PrismicRichText field={step.subtitle} />
-        </span>
-      )}
-    </div>
+async function ProcessSectionSlice({ slice, context }: ProcessSectionSliceProps) {
+  const { language } = await getServerTranslations('translation');
+  const isGerman = language === 'de';
+
+  // Create a function to get language-specific rich text field
+  const getLocalizedRichText = (baseField: any, deField: any, enField: any) => {
+    if (isGerman) {
+      return isFilled.richText(deField) ? deField : baseField;
+    } else {
+      return isFilled.richText(enField) ? enField : baseField;
+    }
+  };
+
+  // Get language-specific content for section header and title
+  const headerField = getLocalizedRichText(
+    slice.primary.header,
+    slice.primary.header_de,
+    slice.primary.header_en
   );
 
-  const renderTitleMobile = (step: any) => (
-    <div className="lg:hidden self-center">
-      <PrismicRichText field={step.title} />
-      {step.subtitle?.length > 0 && (
-        <span className="font-normal"> 
-          <PrismicRichText field={step.subtitle} />
-        </span>
-      )}
-    </div>
+  const titleField = getLocalizedRichText(
+    slice.primary.title,
+    slice.primary.title_de,
+    slice.primary.title_en
   );
+
+  // Image alt text can be translated
+  const imageAlt = isGerman
+    ? (slice.primary.image_alt_de || slice.primary.image_alt || "")
+    : (slice.primary.image_alt_en || slice.primary.image_alt || "Process illustration");
+
+  const renderTitle = (step: any) => {
+    // Get localized step title
+    const stepTitleField = getLocalizedRichText(
+      step.title,
+      step.title_de,
+      step.title_en
+    );
+
+    // Get localized step subtitle
+    const stepSubtitleField = getLocalizedRichText(
+      step.subtitle,
+      step.subtitle_de,
+      step.subtitle_en
+    );
+
+    return (
+      <div className="hidden lg:block">
+        <PrismicRichText field={stepTitleField} />
+        {stepSubtitleField?.length > 0 && (
+          <span className="font-normal"> 
+            <PrismicRichText field={stepSubtitleField} />
+          </span>
+        )}
+      </div>
+    );
+  };
+
+  const renderTitleMobile = (step: any) => {
+    // Get localized step title
+    const stepTitleField = getLocalizedRichText(
+      step.title,
+      step.title_de,
+      step.title_en
+    );
+
+    // Get localized step subtitle
+    const stepSubtitleField = getLocalizedRichText(
+      step.subtitle,
+      step.subtitle_de,
+      step.subtitle_en
+    );
+
+    return (
+      <div className="lg:hidden self-center">
+        <PrismicRichText field={stepTitleField} />
+        {stepSubtitleField?.length > 0 && (
+          <span className="font-normal"> 
+            <PrismicRichText field={stepSubtitleField} />
+          </span>
+        )}
+      </div>
+    );
+  };
 
   const renderStepTitle = (step: any) =>
     step.href?.url ? (
@@ -50,8 +114,8 @@ function ProcessSectionSlice({ slice, context }: ProcessSectionSliceProps) {
     id: `section-box-${slice.id}`,
     slice_type: 'section_box',
     primary: {
-      title: slice.primary.title,
-      header: slice.primary.header,
+      title: titleField,
+      header: headerField,
       title_href: slice.primary.title_href,
       section_id: slice.primary.section_id
     },
@@ -63,26 +127,35 @@ function ProcessSectionSlice({ slice, context }: ProcessSectionSliceProps) {
       <div className="flex lg:flex-row flex-col-reverse gap-8 lg:gap-9 relative">
         <div className="flex-1 flex flex-col lg:gap-10 gap-[26px] relative w-full">
           <div className="absolute w-[2px] left-[15px] top-4 bg-border-primary -z-10 h-full" />
-          {slice.items.map((step: any, index: number) => (
-            <div className="flex flex-col lg:gap-2" key={index}>
-              <div className="flex flex-row gap-5 lg:gap-6 items-center">
-                <div className="w-8 min-w-8 h-8 min-h-8 rounded-full bg-primary-400 border-[2px] pt-[2px] border-background-primary text-center flex items-center justify-center">
-                  <h6 className="dark:text-black">{index + 1}</h6>
+          {slice.items.map((step: any, index: number) => {
+            // Get localized step description
+            const stepDescriptionField = getLocalizedRichText(
+              step.description,
+              step.description_de,
+              step.description_en
+            );
+
+            return (
+              <div className="flex flex-col lg:gap-2" key={index}>
+                <div className="flex flex-row gap-5 lg:gap-6 items-center">
+                  <div className="w-8 min-w-8 h-8 min-h-8 rounded-full bg-primary-400 border-[2px] pt-[2px] border-background-primary text-center flex items-center justify-center">
+                    <h6 className="dark:text-black">{index + 1}</h6>
+                  </div>
+                  {renderStepTitle(step)}
                 </div>
-                {renderStepTitle(step)}
+                <div className="pl-[52px] lg:pl-[56px]">
+                  <PrismicRichText field={stepDescriptionField} />
+                </div>
               </div>
-              <div className="pl-[52px] lg:pl-[56px]">
-                <PrismicRichText field={step.description} />
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         <div className="flex-1 flex pt-0">
           {slice.primary.image && (
             <PrismicNextImage
               field={slice.primary.image}
               className="w-full rounded-[12px] lg:rounded-[16px] object-cover"
-              fallbackAlt={slice.primary.image_alt || "Process illustration"}
+              fallbackAlt={imageAlt}
             />
           )}
         </div>
@@ -98,8 +171,11 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
   steps, 
   imageSrc, 
   imageAlt, 
-  titleHref 
+  titleHref,
+  language = 'en'
 }) => {
+  const isGerman = language === 'de';
+  
   const renderTitle = (step: ProcessStep) => (
     <h4 className="hidden lg:block">
       {step.title}
@@ -128,7 +204,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
     );
 
   return (
-    <SectionBox title={title} header={header} titleHref={titleHref}>
+    <SectionBox title={title} header={header} titleHref={titleHref} language={language}>
       <div className="flex lg:flex-row flex-col-reverse gap-8 lg:gap-9 relative">
         <div className="flex-1 flex flex-col lg:gap-10 gap-[26px] relative w-full">
           <div className="absolute w-[2px] left-[15px] top-4 bg-border-primary -z-10 h-full" />
@@ -173,6 +249,7 @@ interface ProcessSectionProps {
   imageSrc: string;
   imageAlt: string;
   titleHref?: string;
+  language?: string;
 }
 
 export default ProcessSectionSlice;

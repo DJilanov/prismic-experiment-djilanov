@@ -2,29 +2,39 @@
   "id": "hero_section",
   "type": "SharedSlice",
   "name": "HeroSection",
-  "description": "A hero section with background image, title, and description",
+  "description": "A hero section with background image, title, and description (multilingual support with shared images)",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "initial",
-      "description": "Default hero section with background image",
+      "description": "Default hero section with shared images",
       "imageUrl": "",
       "primary": {
-        "background_image": {
-          "type": "Image",
-          "config": {
-            "label": "Background Image",
-            "constraint": {},
-            "thumbnails": []
-          }
-        },
         "title": {
           "type": "StructuredText",
           "config": {
-            "label": "Title",
-            "placeholder": "Hero title",
+            "label": "Title (Default/Fallback)",
+            "placeholder": "Default hero title",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "title_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title (English)",
+            "placeholder": "English hero title",
+            "allowTargetBlank": true,
+            "multi": "heading1"
+          }
+        },
+        "title_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title (German)",
+            "placeholder": "German hero title",
             "allowTargetBlank": true,
             "multi": "heading1"
           }
@@ -32,16 +42,42 @@
         "description": {
           "type": "StructuredText",
           "config": {
-            "label": "Description",
-            "placeholder": "Hero description text",
+            "label": "Description (Default/Fallback)",
+            "placeholder": "Default hero description",
             "allowTargetBlank": true,
             "multi": "paragraph,strong,em,hyperlink,list-item"
+          }
+        },
+        "description_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description (English)",
+            "placeholder": "English hero description",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item"
+          }
+        },
+        "description_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description (German)",
+            "placeholder": "German hero description",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item"
+          }
+        },
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image (Shared)",
+            "constraint": {},
+            "thumbnails": []
           }
         },
         "stripe_image": {
           "type": "Image",
           "config": {
-            "label": "Stripe Image",
+            "label": "Stripe Image (Shared)",
             "constraint": {},
             "thumbnails": []
           }
@@ -50,7 +86,7 @@
           "type": "Text",
           "config": {
             "label": "Stripe Style (Desktop)",
-            "placeholder": "JSON object with CSS styles for the stripe (desktop)",
+            "placeholder": "JSON object with CSS styles for the stripe",
             "description": "Example: {\"top\": \"50px\", \"left\": \"20px\", \"width\": \"300px\", \"zIndex\": -1}"
           }
         },
@@ -58,43 +94,71 @@
           "type": "Text",
           "config": {
             "label": "Stripe Style (Mobile)",
-            "placeholder": "JSON object with CSS styles for the stripe (mobile)",
+            "placeholder": "JSON object with CSS styles for the mobile stripe",
             "description": "Example: {\"top\": \"30px\", \"left\": \"10px\", \"width\": \"150px\", \"zIndex\": -1}"
           }
         },
         "button_text": {
           "type": "Text",
           "config": {
-            "label": "Button Text",
-            "placeholder": "Text for the primary button"
+            "label": "Button Text (Default/Fallback)",
+            "placeholder": "Default button text"
+          }
+        },
+        "button_text_en": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text (English)",
+            "placeholder": "English button text"
+          }
+        },
+        "button_text_de": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text (German)",
+            "placeholder": "German button text"
           }
         },
         "more_text": {
           "type": "Text",
           "config": {
-            "label": "More Text",
-            "placeholder": "Text for the 'learn more' link"
+            "label": "More Text (Default/Fallback)",
+            "placeholder": "Default 'learn more' text"
+          }
+        },
+        "more_text_en": {
+          "type": "Text",
+          "config": {
+            "label": "More Text (English)",
+            "placeholder": "English 'learn more' text"
+          }
+        },
+        "more_text_de": {
+          "type": "Text",
+          "config": {
+            "label": "More Text (German)",
+            "placeholder": "German 'learn more' text"
           }
         },
         "on_submit_id": {
           "type": "Text",
           "config": {
             "label": "Submit Button Target ID",
-            "placeholder": "Element ID to scroll to when button is clicked"
+            "placeholder": "Element ID to scroll to when the submit button is clicked"
           }
         },
         "on_more_id": {
           "type": "Text",
           "config": {
             "label": "More Button Target ID",
-            "placeholder": "Element ID to scroll to when 'learn more' is clicked"
+            "placeholder": "Element ID to scroll to when the 'learn more' button is clicked"
           }
         },
         "background_position": {
           "type": "Select",
           "config": {
             "label": "Background Position",
-            "placeholder": "CSS background position for desktop view",
+            "placeholder": "Position of the background image",
             "options": [
               "top",
               "center",

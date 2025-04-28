@@ -41,8 +41,6 @@ export default function CompanyCarousel({ className = '', header, images }: Prop
 		};
 	}, [images.length]);
 
-	console.log('---images: ', images);
-
 	return (
 		<section className='w-screen lg:py-16 py-8 px-5 lg:px-[120px] flex flex-col gap-6 lg:gap-8'>
 			<h6 className='text-overheader dark:text-gray-300 hidden lg:block ml-16'>{header}</h6>

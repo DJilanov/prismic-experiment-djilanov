@@ -1,85 +1,222 @@
 {
-  "id": "faq",
+  "id": "faq_section",
   "type": "SharedSlice",
-  "name": "FAQ",
-  "description": "A section containing multiple FAQ questions",
+  "name": "FAQSection",
+  "description": "A section displaying FAQ information with shared images and multilingual text",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "initial",
-      "description": "Default FAQ section",
+      "description": "Default FAQ section with shared images",
       "imageUrl": "",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
-            "label": "Title",
-            "placeholder": "FAQ section title",
+            "label": "Title (Default/Fallback)",
+            "placeholder": "Default section title",
             "allowTargetBlank": true,
             "multi": "heading2"
           }
         },
-        "description": {
+        "title_en": {
           "type": "StructuredText",
           "config": {
-            "label": "Description",
-            "placeholder": "Section description text",
+            "label": "Title (English)",
+            "placeholder": "English section title",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink"
+            "multi": "heading2"
           }
         },
-        "fetch_questions": {
-          "type": "Boolean",
+        "title_de": {
+          "type": "StructuredText",
           "config": {
-            "label": "Fetch Questions",
-            "placeholder": "Fetch questions from a central FAQ document",
-            "default_value": false
+            "label": "Title (German)",
+            "placeholder": "German section title",
+            "allowTargetBlank": true,
+            "multi": "heading2"
           }
         },
-        "faq_content_type": {
+        "header": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header (Default/Fallback)",
+            "placeholder": "Default section header",
+            "allowTargetBlank": true,
+            "multi": "heading6"
+          }
+        },
+        "header_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header (English)",
+            "placeholder": "English section header",
+            "allowTargetBlank": true,
+            "multi": "heading6"
+          }
+        },
+        "header_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Header (German)",
+            "placeholder": "German section header",
+            "allowTargetBlank": true,
+            "multi": "heading6"
+          }
+        },
+        "section_id": {
           "type": "Text",
           "config": {
-            "label": "FAQ Content Type",
-            "placeholder": "Content type ID to fetch questions from"
-          }
-        }
-      },
-      "items": {
-        "question": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Question",
-            "placeholder": "FAQ question text",
-            "allowTargetBlank": true,
-            "multi": "heading5"
+            "label": "Section ID",
+            "placeholder": "HTML ID for the section (default: faq-section)"
           }
         },
-        "question_mobile": {
+        "boxes_title": {
           "type": "StructuredText",
           "config": {
-            "label": "Question (Mobile)",
-            "placeholder": "FAQ question text for mobile",
+            "label": "Boxes Title (Default/Fallback)",
+            "placeholder": "Default title for the boxes list section",
             "allowTargetBlank": true,
             "multi": "heading3"
           }
         },
-        "answer": {
+        "boxes_title_en": {
           "type": "StructuredText",
           "config": {
-            "label": "Answer",
-            "placeholder": "FAQ answer text",
+            "label": "Boxes Title (English)",
+            "placeholder": "English title for the boxes list section",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+            "multi": "heading3"
           }
         },
-        "start_open": {
-          "type": "Boolean",
+        "boxes_title_de": {
+          "type": "StructuredText",
           "config": {
-            "label": "Start Open",
-            "placeholder": "Should this question be expanded by default",
-            "default_value": false
+            "label": "Boxes Title (German)",
+            "placeholder": "German title for the boxes list section",
+            "allowTargetBlank": true,
+            "multi": "heading3"
+          }
+        },
+        "boxes": {
+          "type": "Text",
+          "config": {
+            "label": "Boxes (Default/Fallback)",
+            "placeholder": "Default comma-separated list of box texts",
+            "description": "Example: Box 1, Box 2, Box 3"
+          }
+        },
+        "boxes_en": {
+          "type": "Text",
+          "config": {
+            "label": "Boxes (English)",
+            "placeholder": "English comma-separated list of box texts",
+            "description": "Example: Box 1, Box 2, Box 3"
+          }
+        },
+        "boxes_de": {
+          "type": "Text",
+          "config": {
+            "label": "Boxes (German)",
+            "placeholder": "German comma-separated list of box texts",
+            "description": "Example: Box 1, Box 2, Box 3"
+          }
+        },
+        "description_sections": {
+          "type": "Group",
+          "config": {
+            "label": "Description Sections (Default/Fallback)",
+            "fields": {
+              "description_title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "Default section title",
+                  "allowTargetBlank": true,
+                  "multi": "heading4"
+                }
+              },
+              "description_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "Default section description",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+                }
+              }
+            }
+          }
+        },
+        "description_sections_en": {
+          "type": "Group",
+          "config": {
+            "label": "Description Sections (English)",
+            "fields": {
+              "description_title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "English section title",
+                  "allowTargetBlank": true,
+                  "multi": "heading4"
+                }
+              },
+              "description_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "English section description",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+                }
+              }
+            }
+          }
+        },
+        "description_sections_de": {
+          "type": "Group",
+          "config": {
+            "label": "Description Sections (German)",
+            "fields": {
+              "description_title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "German section title",
+                  "allowTargetBlank": true,
+                  "multi": "heading4"
+                }
+              },
+              "description_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "German section description",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image (Shared)",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "image_alt": {
+          "type": "Text",
+          "config": {
+            "label": "Image Alt Text",
+            "placeholder": "Alternative text for the image"
           }
         }
       }

@@ -27,7 +27,9 @@
         "config": {
           "label": "Parent",
           "select": "document",
-          "customtypes": ["page"]
+          "customtypes": [
+            "page"
+          ]
         }
       },
       "slices": {
@@ -86,9 +88,6 @@
             "diversity_section": {
               "type": "SharedSlice"
             },
-            "faq": {
-              "type": "SharedSlice"
-            },
             "chance_section": {
               "type": "SharedSlice"
             },
@@ -113,6 +112,20 @@
           "placeholder": "A title of the page used for social media and search engines"
         }
       },
+      "meta_title_de": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title (German)",
+          "placeholder": "A title of the page in German used for social media and search engines"
+        }
+      },
+      "meta_title_en": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Title (English)",
+          "placeholder": "A title of the page in English used for social media and search engines"
+        }
+      },
       "meta_description": {
         "type": "Text",
         "config": {
@@ -120,15 +133,94 @@
           "placeholder": "A brief summary of the page"
         }
       },
+      "meta_description_de": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description (German)",
+          "placeholder": "A brief summary of the page in German"
+        }
+      },
+      "meta_description_en": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Description (English)",
+          "placeholder": "A brief summary of the page in English"
+        }
+      },
+      "meta_keywords": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Keywords",
+          "placeholder": "Comma-separated keywords (optional)"
+        }
+      },
+      "meta_keywords_de": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Keywords (German)",
+          "placeholder": "Comma-separated keywords in German (optional)"
+        }
+      },
+      "meta_keywords_en": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Keywords (English)",
+          "placeholder": "Comma-separated keywords in English (optional)"
+        }
+      },
       "meta_image": {
         "type": "Image",
         "config": {
           "label": "Meta Image",
           "constraint": {
-            "width": 2400,
-            "height": 1260
+            "width": 1200,
+            "height": 630
           },
           "thumbnails": []
+        }
+      },
+      "meta_image_alt": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Image Alt",
+          "placeholder": "Alt text for the meta image"
+        }
+      },
+      "meta_image_alt_de": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Image Alt (German)",
+          "placeholder": "Alt text for the meta image in German"
+        }
+      },
+      "meta_image_alt_en": {
+        "type": "Text",
+        "config": {
+          "label": "Meta Image Alt (English)",
+          "placeholder": "Alt text for the meta image in English"
+        }
+      },
+      "canonical_url": {
+        "type": "Text",
+        "config": {
+          "label": "Canonical URL",
+          "placeholder": "Optional: override the default canonical URL"
+        }
+      },
+      "no_index": {
+        "type": "Boolean",
+        "config": {
+          "label": "No Index",
+          "default_value": false,
+          "placeholder": "Prevent search engines from indexing this page"
+        }
+      },
+      "no_follow": {
+        "type": "Boolean",
+        "config": {
+          "label": "No Follow",
+          "default_value": false,
+          "placeholder": "Prevent search engines from following links on this page"
         }
       }
     }

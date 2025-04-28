@@ -2,6 +2,8 @@ import React from 'react';
 import { PrismicRichText } from '@prismicio/react';
 import { createClient } from '@/prismicio';
 import QuestionSlice from '.';
+import { getServerTranslations } from '@/i18n/server';
+import { isFilled } from '@prismicio/client';
 
 type FAQSectionSliceProps = {
   slice: any;
@@ -9,6 +11,19 @@ type FAQSectionSliceProps = {
 }
 
 async function FAQSectionSlice({ slice, context }: FAQSectionSliceProps) {
+  const { language } = await getServerTranslations('translation');
+  const isGerman = language === 'de';
+
+  // Get language-specific content for title
+  const titleField = isGerman
+    ? (isFilled.richText(slice.primary.title_de) ? slice.primary.title_de : slice.primary.title)
+    : (isFilled.richText(slice.primary.title_en) ? slice.primary.title_en : slice.primary.title);
+
+  // Get language-specific content for description
+  const descriptionField = isGerman
+    ? (isFilled.richText(slice.primary.description_de) ? slice.primary.description_de : slice.primary.description)
+    : (isFilled.richText(slice.primary.description_en) ? slice.primary.description_en : slice.primary.description);
+
   // Fetch questions if they're linked rather than embedded
   let questions = slice.items;
   
@@ -23,15 +38,15 @@ async function FAQSectionSlice({ slice, context }: FAQSectionSliceProps) {
 
   return (
     <div className="faq-section">
-      {slice.primary.title && (
+      {titleField && (
         <div className="faq-title">
-          <PrismicRichText field={slice.primary.title} />
+          <PrismicRichText field={titleField} />
         </div>
       )}
       
-      {slice.primary.description && (
+      {descriptionField && (
         <div className="faq-description">
-          <PrismicRichText field={slice.primary.description} />
+          <PrismicRichText field={descriptionField} />
         </div>
       )}
       
@@ -40,6 +55,7 @@ async function FAQSectionSlice({ slice, context }: FAQSectionSliceProps) {
           <QuestionSlice 
             key={`question-${index}`} 
             slice={question}
+            context={{ language }}
           />
         ))}
       </div>

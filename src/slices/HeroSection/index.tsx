@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { ReactNode } from "react";
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextImage } from '@prismicio/next';
+import { getServerTranslations } from "@/i18n/server";
+import { isFilled } from '@prismicio/client';
 import { ScrollABit } from "socialbee-ui";
 
 type HeroSectionSliceProps = {
@@ -11,7 +13,10 @@ type HeroSectionSliceProps = {
   children?: ReactNode;
 }
 
-function HeroSectionSlice({ slice, context, children }: HeroSectionSliceProps) {
+async function HeroSectionSlice({ slice, context, children }: HeroSectionSliceProps) {
+  const { language } = await getServerTranslations('translation');
+  const isGerman = language === 'de';
+  
   // Default values and fallbacks
   const stripeStyle = slice.primary.stripe_style ? JSON.parse(slice.primary.stripe_style) : undefined;
   const stripeStylePhone = slice.primary.stripe_style_phone ? JSON.parse(slice.primary.stripe_style_phone) : undefined;
@@ -19,12 +24,33 @@ function HeroSectionSlice({ slice, context, children }: HeroSectionSliceProps) {
   const onSubmitId = slice.primary.on_submit_id || 'contact';
   const onMoreId = slice.primary.on_more_id || 'more';
   
+  // Get language-specific content
+  const titleField = isGerman
+    ? (isFilled.richText(slice.primary.title_de) ? slice.primary.title_de : slice.primary.title)
+    : (isFilled.richText(slice.primary.title_en) ? slice.primary.title_en : slice.primary.title);
+    
+  const descriptionField = isGerman
+    ? (isFilled.richText(slice.primary.description_de) ? slice.primary.description_de : slice.primary.description)
+    : (isFilled.richText(slice.primary.description_en) ? slice.primary.description_en : slice.primary.description);
+    
+  const buttonText = isGerman
+    ? (slice.primary.button_text_de || slice.primary.button_text || 'Absenden')
+    : (slice.primary.button_text_en || slice.primary.button_text || 'Submit');
+    
+  const moreText = isGerman
+    ? (slice.primary.more_text_de || slice.primary.more_text || 'Mehr erfahren')
+    : (slice.primary.more_text_en || slice.primary.more_text || 'Learn More');
+  
+  // Using shared images (background and stripe)
+  const backgroundImage = slice.primary.background_image;
+  const stripeImage = slice.primary.stripe_image;
+  
   return (
     <section
       className={`w-screen relative px-5 pt-[120px] bg-bottom lg:content-center overflow-hidden h-[840px] lg:min-h-[795px] lg:h-[90dvh] lg:pt-[144px] lg:pl-[140px] bg-cover lg:bg-center ${backgroundPosition && 'lg:bg-' + backgroundPosition}`}
       style={{ 
-        backgroundImage: slice.primary.background_image ? 
-          `url(${slice.primary.background_image.url})` : 
+        backgroundImage: backgroundImage ? 
+          `url(${backgroundImage.url})` : 
           undefined 
       }}
     >
@@ -36,19 +62,19 @@ function HeroSectionSlice({ slice, context, children }: HeroSectionSliceProps) {
               zIndex: stripeStyle?.zIndex === -1 ? 2 : 1,
             }}
           >
-            <PrismicRichText field={slice.primary.title} />
+            <PrismicRichText field={titleField} />
           </span>
-          {slice.primary.stripe_image ? (
+          {stripeImage ? (
             <>
               <PrismicNextImage
-                field={slice.primary.stripe_image}
+                field={stripeImage}
                 className="absolute hidden lg:block"
                 fallback="decorative stripe"
                 imgixParams={{ fit: "crop" }}
                 style={stripeStyle}
               />
               <PrismicNextImage
-                field={slice.primary.stripe_image}
+                field={stripeImage}
                 className="absolute lg:hidden"
                 fallback="decorative stripe"
                 imgixParams={{ fit: "crop" }}
@@ -74,19 +100,19 @@ function HeroSectionSlice({ slice, context, children }: HeroSectionSliceProps) {
         </h1>
         <div className="flex flex-col gap-8">
           <div className="lg:w-[597px] whitespace-pre-wrap">
-            <PrismicRichText field={slice.primary.description} />
+            <PrismicRichText field={descriptionField} />
           </div>
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 lg:items-center w-fit">
             <ScrollABit 
               className="button-bold bg-primary-400 h-14 rounded-[12px] py-[10px] px-8" 
               elementId={onSubmitId}
             >
-              {slice.primary.button_text || 'Submit'}
+              {buttonText}
             </ScrollABit>
             <ScrollABit elementId={onMoreId}>
               <>
                 <FontAwesomeIcon icon={faArrowDown} className="w-3 h-3 button-bold" />
-                {slice.primary.more_text || 'Learn More'}
+                {moreText}
               </>
             </ScrollABit>
           </div>
@@ -109,6 +135,7 @@ interface HeroSectionProps {
   onSubmitId: string;
   onMoreId: string;
   backgroundPosition?: string | undefined;
+  language?: string;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
@@ -122,6 +149,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onSubmitId,
   onMoreId,
   backgroundPosition,
+  language = 'en'
 }) => {
   return (
     <section

@@ -2,6 +2,8 @@ import React, { FC } from "react";
 import { PrismicRichText } from '@prismicio/react';
 import { PrismicNextLink } from '@prismicio/next';
 import { SectionBoxProps } from "socialbee-ui/dist/components/SectionBox/SectionBox";
+import { getServerTranslations } from '@/i18n/server';
+import { isFilled } from '@prismicio/client';
 
 type SectionBoxSliceProps = {
   slice: any;
@@ -9,13 +11,39 @@ type SectionBoxSliceProps = {
   children?: React.ReactNode;
 }
 
-function SectionBoxSlice({ slice, context, children }: SectionBoxSliceProps) {
+async function SectionBoxSlice({ slice, context, children }: SectionBoxSliceProps) {
+  const { language } = await getServerTranslations('translation');
+  const isGerman = language === 'de';
+
+  // Get language-specific content for header
+  const headerField = isGerman
+    ? (isFilled.richText(slice.primary.header_de) ? slice.primary.header_de : slice.primary.header)
+    : (isFilled.richText(slice.primary.header_en) ? slice.primary.header_en : slice.primary.header);
+
+  // Get language-specific content for mobile header
+  const headerMobileField = isGerman
+    ? (isFilled.richText(slice.primary.header_mobile_de) 
+        ? slice.primary.header_mobile_de 
+        : (isFilled.richText(slice.primary.header_de) 
+            ? slice.primary.header_de 
+            : (slice.primary.header_mobile || slice.primary.header)))
+    : (isFilled.richText(slice.primary.header_mobile_en) 
+        ? slice.primary.header_mobile_en 
+        : (isFilled.richText(slice.primary.header_en) 
+            ? slice.primary.header_en 
+            : (slice.primary.header_mobile || slice.primary.header)));
+
+  // Get language-specific content for title
+  const titleField = isGerman
+    ? (isFilled.richText(slice.primary.title_de) ? slice.primary.title_de : slice.primary.title)
+    : (isFilled.richText(slice.primary.title_en) ? slice.primary.title_en : slice.primary.title);
+
   const renderTitle = () => {
-    if (!slice.primary.title?.length) return null;
+    if (!titleField?.length) return null;
 
     const TitleElement = (
       <div className="dark:text-gray-300">
-        <PrismicRichText field={slice.primary.title} />
+        <PrismicRichText field={titleField} />
       </div>
     );
 
@@ -40,20 +68,27 @@ function SectionBoxSlice({ slice, context, children }: SectionBoxSliceProps) {
     >
       <div className="flex flex-col gap-5 lg:gap-6">
         <div className="text-overheader dark:text-gray-300 hidden lg:block">
-          <PrismicRichText field={slice.primary.header} />
+          <PrismicRichText field={headerField} />
         </div>
         <div className="text-overheader dark:text-gray-300 lg:hidden">
-          <PrismicRichText field={slice.primary.header_mobile || slice.primary.header} />
+          <PrismicRichText field={headerMobileField} />
         </div>
         {renderTitle()}
       </div>
       {children || (
         <div className="section-content">
-          {slice.items.map((item: any, i: number) => (
-            <div key={`content-${i}`} className="section-item">
-              <PrismicRichText field={item.content} />
-            </div>
-          ))}
+          {slice.items.map((item: any, i: number) => {
+            // Get language-specific content for items
+            const contentField = isGerman
+              ? (isFilled.richText(item.content_de) ? item.content_de : item.content)
+              : (isFilled.richText(item.content_en) ? item.content_en : item.content);
+              
+            return (
+              <div key={`content-${i}`} className="section-item">
+                <PrismicRichText field={contentField} />
+              </div>
+            );
+          })}
         </div>
       )}
     </section>
@@ -61,7 +96,16 @@ function SectionBoxSlice({ slice, context, children }: SectionBoxSliceProps) {
 }
 
 // For backward compatibility with existing code
-export const SectionBox: FC<SectionBoxProps> = ({ title, header, children, id, titleHref }) => {
+export const SectionBox: FC<SectionBoxProps | any> = ({ 
+  title, 
+  header, 
+  children, 
+  id, 
+  titleHref,
+  language = 'en'
+}) => {
+  const isGerman = language === 'de';
+  
   const renderTitle = () => {
     if (!title) return null;
 

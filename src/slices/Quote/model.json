@@ -2,34 +2,65 @@
   "id": "quote",
   "type": "SharedSlice",
   "name": "Quote",
-  "description": "Quote",
+  "description": "A block quote with optional source attribution",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "Quote",
+      "description": "Default Quote",
       "primary": {
         "quote": {
           "type": "StructuredText",
           "config": {
             "label": "Quote",
-            "placeholder": "",
+            "placeholder": "Quote text (default language)",
             "allowTargetBlank": true,
-            "single": "strong,em,heading3"
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "quote_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Quote (German)",
+            "placeholder": "Quote text in German",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
+          }
+        },
+        "quote_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Quote (English)",
+            "placeholder": "Quote text in English",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em"
           }
         },
         "source": {
           "type": "Text",
           "config": {
             "label": "Source",
-            "placeholder": ""
+            "placeholder": "Quote source or attribution (default language)"
+          }
+        },
+        "source_de": {
+          "type": "Text",
+          "config": {
+            "label": "Source (German)",
+            "placeholder": "Quote source or attribution in German"
+          }
+        },
+        "source_en": {
+          "type": "Text",
+          "config": {
+            "label": "Source (English)",
+            "placeholder": "Quote source or attribution in English"
           }
         }
       },
-      "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "items": {}
     }
   ]
 }
