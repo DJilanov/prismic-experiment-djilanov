@@ -27,9 +27,7 @@
         "config": {
           "label": "Parent",
           "select": "document",
-          "customtypes": [
-            "page"
-          ]
+          "customtypes": ["page"]
         }
       },
       "slices": {
@@ -37,6 +35,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "faq_section": {
+              "type": "SharedSlice"
+            },
+            "seo": {
+              "type": "SharedSlice"
+            },
             "customer_logos": {
               "type": "SharedSlice"
             },
@@ -56,9 +60,6 @@
               "type": "SharedSlice"
             },
             "talent_section": {
-              "type": "SharedSlice"
-            },
-            "question": {
               "type": "SharedSlice"
             },
             "process_section": {
@@ -211,16 +212,14 @@
         "type": "Boolean",
         "config": {
           "label": "No Index",
-          "default_value": false,
-          "placeholder": "Prevent search engines from indexing this page"
+          "default_value": false
         }
       },
       "no_follow": {
         "type": "Boolean",
         "config": {
           "label": "No Follow",
-          "default_value": false,
-          "placeholder": "Prevent search engines from following links on this page"
+          "default_value": false
         }
       }
     }
