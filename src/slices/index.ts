@@ -9,7 +9,7 @@ export const components = {
   chance_section: dynamic(() => import("./ChanceSection")),
   customer_logos: dynamic(() => import("./CustomerLogos")),
   diversity_section: dynamic(() => import("./DiversitySection")),
-  faq: dynamic(() => import("./Faq")),
+  faq_section: dynamic(() => import("./Faq")),
   feedback_section: dynamic(() => import("./FeedbackSection")),
   hero: dynamic(() => import("./Hero")),
   hero_section: dynamic(() => import("./HeroSection")),
@@ -25,4 +25,5 @@ export const components = {
   text: dynamic(() => import("./Text")),
   text_with_image: dynamic(() => import("./TextWithImage")),
   text_with_image_inversed: dynamic(() => import("./TextWithImageInversed")),
+  seo: dynamic(() => import("./SEO")),
 };

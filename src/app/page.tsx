@@ -1,39 +1,34 @@
-import { Metadata } from 'next';
 import { SliceZone } from '@prismicio/react';
-import * as prismic from '@prismicio/client';
 import { createClient } from '@/prismicio';
 import { components } from '../slices';
 import { getLocales } from '@/utils/getLocales';
-import { notFound } from 'next/navigation';
-import { SEO } from '@/components/SEO';
+import { generateMetadata as generateSeoMetadata } from '@/lib/seo';
 
-export async function generateMetadata({
-  params: { lang },
-}: {
-  params: { lang: string };
-}): Promise<Metadata> {
+
+// Generate metadata for the page
+export async function generateMetadata({ params }: any) {
   const client = createClient();
-  const pages = await client.getAllByType("page", {
-    orderings: {
-      field: "document.first_publication_date",
-      direction: "desc",
-    },
-    lang: "en-us",
-  });
-  const home = await client.getByUID('page', 'home', { lang }).catch(() => notFound());
+  
+  try {
+    const page = await client.getByUID('page', 'home');
 
-  return {
-    title: prismic.asText(home.data.title),
-    description: home.data.meta_description,
-    openGraph: {
-      title: home.data.meta_title || undefined,
-      images: [
-        {
-          url: home.data.meta_image.url || '',
-        },
-      ],
-    },
-  };
+    // Find the SEO slice
+    const seoSlice = page.data.slices.find(slice => slice.slice_type === 'seo');
+    
+    // Generate metadata using our helper
+    if (seoSlice) {
+      return generateSeoMetadata(seoSlice);
+    }
+    
+    // Fallback to basic metadata if no SEO slice
+    return {
+      title: page.data.title || '',
+    };
+  } catch (error) {
+    return {
+      title: 'Page Not Found',
+    };
+  }
 }
 
 export default async function Index({

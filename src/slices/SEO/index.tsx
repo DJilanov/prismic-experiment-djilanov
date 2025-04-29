@@ -1,6 +1,3 @@
-// components/SEO.js
-// This component renders all SEO meta tags from the Prismic slice
-
 import Head from 'next/head';
 
 export const SEO = ({ seoData }: any) => {
