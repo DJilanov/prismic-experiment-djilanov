@@ -2,71 +2,133 @@
   "id": "image_cards",
   "type": "SharedSlice",
   "name": "ImageCards",
-  "description": "ImageCards",
+  "description": "A grid of cards with images and text (multilingual support with shared images)",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
-      "version": "sktwi1xtmkfgx8626",
-      "description": "ImageCards",
+      "version": "initial",
+      "description": "Default image cards layout with shared images",
+      "imageUrl": "",
       "primary": {
         "heading": {
           "type": "StructuredText",
           "config": {
-            "label": "Heading",
-            "placeholder": "",
+            "label": "Heading (Default/Fallback)",
+            "placeholder": "Default section heading",
             "allowTargetBlank": true,
-            "multi": "heading1"
+            "multi": "heading2"
+          }
+        },
+        "heading_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading (English)",
+            "placeholder": "English section heading",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "heading_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading (German)",
+            "placeholder": "German section heading",
+            "allowTargetBlank": true,
+            "multi": "heading2"
           }
         },
         "cards": {
           "type": "Group",
           "config": {
             "label": "Cards",
-            "repeat": true,
             "fields": {
               "image": {
                 "type": "Image",
                 "config": {
-                  "label": "Image",
-                  "constraint": {
-                    "width": 2200,
-                    "height": 1200
-                  },
+                  "label": "Image (Shared)",
+                  "constraint": {},
                   "thumbnails": []
                 }
               },
               "text": {
                 "type": "StructuredText",
                 "config": {
-                  "label": "Text",
-                  "placeholder": "",
+                  "label": "Text (Default/Fallback)",
+                  "placeholder": "Default card text",
                   "allowTargetBlank": true,
-                  "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+                  "multi": "paragraph,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item"
                 }
               },
-              "buttonLink": {
-                "type": "Link",
+              "text_en": {
+                "type": "StructuredText",
                 "config": {
-                  "label": "Button Link",
-                  "placeholder": "",
-                  "select": null
+                  "label": "Text (English)",
+                  "placeholder": "English card text",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item"
+                }
+              },
+              "text_de": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Text (German)",
+                  "placeholder": "German card text",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,heading3,heading4,heading5,heading6,strong,em,hyperlink,list-item,o-list-item"
                 }
               },
               "buttonText": {
                 "type": "Text",
                 "config": {
-                  "label": "Button Text",
-                  "placeholder": ""
+                  "label": "Button Text (Default/Fallback)",
+                  "placeholder": "Default button text"
+                }
+              },
+              "buttonText_en": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Text (English)",
+                  "placeholder": "English button text"
+                }
+              },
+              "buttonText_de": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Text (German)",
+                  "placeholder": "German button text"
+                }
+              },
+              "buttonLink": {
+                "type": "Link",
+                "config": {
+                  "label": "Button Link (Default/Fallback)",
+                  "placeholder": "Default link for the button",
+                  "allowTargetBlank": true
+                }
+              },
+              "buttonLink_en": {
+                "type": "Link",
+                "config": {
+                  "label": "Button Link (English)",
+                  "placeholder": "English link for the button",
+                  "allowTargetBlank": true
+                }
+              },
+              "buttonLink_de": {
+                "type": "Link",
+                "config": {
+                  "label": "Button Link (German)",
+                  "placeholder": "German link for the button",
+                  "allowTargetBlank": true
                 }
               }
             }
           }
         }
       },
-      "items": {},
-      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+      "items": {}
     }
   ]
 }

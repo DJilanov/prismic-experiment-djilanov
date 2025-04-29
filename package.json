@@ -23,6 +23,7 @@
     "@prismicio/next": "^2.0.1",
     "@prismicio/react": "^3.2.0",
     "@serwist/next": "9.0.13",
+    "@prismicio/helpers": "2.3.9",
     "accept-language": "3.0.20",
     "clsx": "^2.1.1",
     "flowbite": "3.1.2",
