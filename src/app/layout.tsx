@@ -10,6 +10,7 @@ import HeaderSection from '@/sections/header-section';
 import FlowbiteInit from '@/components/flowbite/init';
 import { Footer } from '@/sections/Footer/Footer';
 import { getServerTranslations } from '@/i18n/server';
+import LanguageDetector from '@/components/LanguageDetector';
 
 config.autoAddCss = false;
 
@@ -32,6 +33,7 @@ export default async function RootLayout({
       <body>
         <main className='flex flex-col items-center justify-between overflow-x-hidden relative dark:bg-metal-800 min-h-screen'>
           <HeaderSection />
+          <LanguageDetector />
           <div className='h-10'/>
           {children}
           <Footer t={t} logoSrc='/logo.png' whatsappSrc='/whatsapp.png' getLink={(linkObj: { de: string; en: string }) => (linkObj.de)}/>
