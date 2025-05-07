@@ -2,248 +2,123 @@
   "id": "talent_section",
   "type": "SharedSlice",
   "name": "TalentSection",
-  "description": "A section displaying talent information in three columns",
+  "description": "Talent section with statistics and information about talents",
   "variations": [
     {
       "id": "default",
       "name": "Default",
       "docURL": "...",
-      "version": "sktwi1xtmkfgx8626",
+      "version": "initial",
       "description": "Default Talent Section",
+      "imageUrl": "",
       "primary": {
         "first_title": {
           "type": "Text",
           "config": {
-            "label": "First Title",
-            "placeholder": "First column title (default language)"
-          }
-        },
-        "first_title_de": {
-          "type": "Text",
-          "config": {
-            "label": "First Title (German)",
-            "placeholder": "First column title in German"
-          }
-        },
-        "first_title_en": {
-          "type": "Text",
-          "config": {
-            "label": "First Title (English)",
-            "placeholder": "First column title in English"
-          }
-        },
-        "first_info": {
-          "type": "StructuredText",
-          "config": {
-            "label": "First Info",
-            "placeholder": "First column information (default language)",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "first_info_de": {
-          "type": "StructuredText",
-          "config": {
-            "label": "First Info (German)",
-            "placeholder": "First column information in German",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "first_info_en": {
-          "type": "StructuredText",
-          "config": {
-            "label": "First Info (English)",
-            "placeholder": "First column information in English",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "first_info_mobile": {
-          "type": "StructuredText",
-          "config": {
-            "label": "First Info Mobile",
-            "placeholder": "First column information for mobile devices (default language)",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "first_info_mobile_de": {
-          "type": "StructuredText",
-          "config": {
-            "label": "First Info Mobile (German)",
-            "placeholder": "First column information for mobile devices in German",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "first_info_mobile_en": {
-          "type": "StructuredText",
-          "config": {
-            "label": "First Info Mobile (English)",
-            "placeholder": "First column information for mobile devices in English",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+            "label": "First Statistic",
+            "placeholder": "First statistic (e.g. 200+)"
           }
         },
         "second_title": {
           "type": "Text",
           "config": {
-            "label": "Second Title",
-            "placeholder": "Second column title (default language)"
-          }
-        },
-        "second_title_de": {
-          "type": "Text",
-          "config": {
-            "label": "Second Title (German)",
-            "placeholder": "Second column title in German"
-          }
-        },
-        "second_title_en": {
-          "type": "Text",
-          "config": {
-            "label": "Second Title (English)",
-            "placeholder": "Second column title in English"
-          }
-        },
-        "second_info": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Second Info",
-            "placeholder": "Second column information (default language)",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "second_info_de": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Second Info (German)",
-            "placeholder": "Second column information in German",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "second_info_en": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Second Info (English)",
-            "placeholder": "Second column information in English",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "second_info_mobile": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Second Info Mobile",
-            "placeholder": "Second column information for mobile devices (default language)",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "second_info_mobile_de": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Second Info Mobile (German)",
-            "placeholder": "Second column information for mobile devices in German",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "second_info_mobile_en": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Second Info Mobile (English)",
-            "placeholder": "Second column information for mobile devices in English",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+            "label": "Second Statistic",
+            "placeholder": "Second statistic (e.g. 92%)"
           }
         },
         "third_title": {
           "type": "Text",
           "config": {
-            "label": "Third Title",
-            "placeholder": "Third column title (default language)"
+            "label": "Third Statistic",
+            "placeholder": "Third statistic (e.g. 1300+)"
           }
         },
-        "third_title_de": {
-          "type": "Text",
-          "config": {
-            "label": "Third Title (German)",
-            "placeholder": "Third column title in German"
-          }
-        },
-        "third_title_en": {
-          "type": "Text",
-          "config": {
-            "label": "Third Title (English)",
-            "placeholder": "Third column title in English"
-          }
-        },
-        "third_info": {
+        "info1": {
           "type": "StructuredText",
           "config": {
-            "label": "Third Info",
-            "placeholder": "Third column information (default language)",
+            "label": "First Info (Default/Fallback)",
+            "placeholder": "Information for first statistic",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+            "multi": "paragraph,strong,em,hyperlink"
           }
         },
-        "third_info_de": {
+        "info1_en": {
           "type": "StructuredText",
           "config": {
-            "label": "Third Info (German)",
-            "placeholder": "Third column information in German",
+            "label": "First Info (English)",
+            "placeholder": "Information for first statistic in English",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+            "multi": "paragraph,strong,em,hyperlink"
           }
         },
-        "third_info_en": {
+        "info1_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "First Info (German)",
+            "placeholder": "Information for first statistic in German",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "info2": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Info (Default/Fallback)",
+            "placeholder": "Information for second statistic",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "info2_en": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Info (English)",
+            "placeholder": "Information for second statistic in English",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "info2_de": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Info (German)",
+            "placeholder": "Information for second statistic in German",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "info3": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Third Info (Default/Fallback)",
+            "placeholder": "Information for third statistic",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "info3_en": {
           "type": "StructuredText",
           "config": {
             "label": "Third Info (English)",
-            "placeholder": "Third column information in English",
+            "placeholder": "Information for third statistic in English",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+            "multi": "paragraph,strong,em,hyperlink"
           }
         },
-        "third_info_mobile": {
+        "info3_de": {
           "type": "StructuredText",
           "config": {
-            "label": "Third Info Mobile",
-            "placeholder": "Third column information for mobile devices (default language)",
+            "label": "Third Info (German)",
+            "placeholder": "Information for third statistic in German",
             "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+            "multi": "paragraph,strong,em,hyperlink"
           }
         },
-        "third_info_mobile_de": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Third Info Mobile (German)",
-            "placeholder": "Third column information for mobile devices in German",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "third_info_mobile_en": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Third Info Mobile (English)",
-            "placeholder": "Third column information for mobile devices in English",
-            "allowTargetBlank": true,
-            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
-          }
-        },
-        "stripe_image": {
+        "white_brush_image": {
           "type": "Image",
           "config": {
-            "label": "Stripe Image",
-            "constraint": {
-              "width": 133,
-              "height": 34
-            },
+            "label": "White Brush Image",
+            "constraint": {},
             "thumbnails": []
           }
         }

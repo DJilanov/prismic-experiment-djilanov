@@ -33,7 +33,7 @@ async function FeedbackSectionSlice({ slice, context }: FeedbackSectionSliceProp
       (isFilled.richText(slice.primary.title_mobile) ? slice.primary.title_mobile : titleField));
 
   return (
-    <section className="w-screen py-14 lg:p-[120px] flex flex-col gap-8 dark:text-gray-300">
+    <section className="w-screen lg:p-[120px] flex flex-col gap-8 dark:text-gray-300">
       <div className="text-overheader px-0 hidden lg:block dark:text-gray-300">
         <PrismicRichText field={titleField} />
       </div>
@@ -171,7 +171,7 @@ export const FeedbackSection: React.FC<FeedbackSectionProps> = ({
   language = 'en'
 }) => {
   return (
-    <section className="w-screen py-14 lg:p-[120px] flex flex-col gap-8 dark:text-gray-300">
+    <section className="w-screen lg:p-[120px] flex flex-col gap-8 dark:text-gray-300">
       <h6 className="text-overheader px-0 hidden lg:block dark:text-gray-300">{title}</h6>
       <h4 className="text-overheader px-5 lg:hidden dark:text-gray-300">{title}</h4>
       <div className="flex px-[10px] lg:px-0 lg:flex-row flex-col gap-9">

@@ -35,6 +35,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "company_carousel": {
+              "type": "SharedSlice"
+            },
             "question": {
               "type": "SharedSlice"
             },

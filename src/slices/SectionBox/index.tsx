@@ -64,7 +64,7 @@ async function SectionBoxSlice({ slice, context, children }: SectionBoxSliceProp
   return (
     <section
       id={slice.primary.section_id || undefined}
-      className="w-screen px-4 py-14 lg:px-10 lg:py-[120px] xl:p-[120px] flex flex-col gap-10 lg:gap-[64px] dark:text-gray-300"
+      className="w-screen max-w-[1440px] px-4 px-32 lg:py-[40px] xl:py-[40px] flex flex-col gap-10 lg:gap-[64px] dark:text-gray-300"
     >
       <div className="flex flex-col gap-5 lg:gap-6">
         <div className="text-overheader dark:text-gray-300 hidden lg:block">
@@ -127,7 +127,7 @@ export const SectionBox: FC<SectionBoxProps | any> = ({
   return (
     <section
       id={id}
-      className="w-screen px-4 py-14 lg:px-10 lg:py-[120px] xl:p-[120px] flex flex-col gap-10 lg:gap-[64px] dark:text-gray-300"
+      className="w-screen px-4 lg:px-10 lg:py-[120px] xl:p-[40px] flex flex-col gap-10 lg:gap-[64px] dark:text-gray-300"
     >
       <div className="flex flex-col gap-5 lg:gap-6">
         <h6 className="text-overheader dark:text-gray-300 hidden lg:block">{header}</h6>

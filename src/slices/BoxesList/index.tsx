@@ -17,25 +17,24 @@ export async function BoxesListSlice({ slice, context }: BoxesListSliceProps) {
     : slice.primary.title_en || slice.primary.title;
 
   return (
-    <div className="max-w-[1024px] mt-10 lg:mt-16 items-center" style={{
+    <div className="max-w-[1440px] mt-10 lg:mt-16 items-center" style={{
       margin: '50px auto',
     }}>
-      <div className="mb-6">
-        <PrismicRichText field={titleField} />
-      </div>
       <div className="flex flex-wrap gap-3 lg:gap-6">
+      <PrismicRichText field={titleField} />
         {slice.items.map((item: any, index: number) => {
           // Select the appropriate box text based on language
           const boxText = isGerman
-            ? item.box_text_de || item.box_text
-            : item.box_text_en || item.box_text;
+            ? item.description_title_de || item.description_text_de
+            : item.description_title_en || item.description_text_en;
+
             
           return (
             <div
               key={index}
-              className="px-4 py-3 rounded-xl bg-primary-400 flex items-center justify-center"
+              className="px-4 py-3 rounded-xl bg-gray-100 flex items-center justify-center"
             >
-              {boxText}
+              {boxText ? boxText[0].text : ''}
             </div>
           );
         })}

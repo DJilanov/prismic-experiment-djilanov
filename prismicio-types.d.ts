@@ -62,6 +62,7 @@ export type NavigationDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | CompanyCarouselSlice
   | QuestionSlice
   | FaqSectionSlice
   | SeoSlice
@@ -1615,6 +1616,106 @@ type ChanceSectionSliceVariation = ChanceSectionSliceDefault;
 export type ChanceSectionSlice = prismic.SharedSlice<
   "chance_section",
   ChanceSectionSliceVariation
+>;
+
+/**
+ * Primary content in *CompanyCarousel → Default → Primary*
+ */
+export interface CompanyCarouselSliceDefaultPrimary {
+  /**
+   * Header (Default/Fallback) field in *CompanyCarousel → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Default carousel header
+   * - **API ID Path**: company_carousel.default.primary.header
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  header: prismic.KeyTextField;
+
+  /**
+   * Header (English) field in *CompanyCarousel → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: English carousel header
+   * - **API ID Path**: company_carousel.default.primary.header_en
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  header_en: prismic.KeyTextField;
+
+  /**
+   * Header (German) field in *CompanyCarousel → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: German carousel header
+   * - **API ID Path**: company_carousel.default.primary.header_de
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  header_de: prismic.KeyTextField;
+
+  /**
+   * Carousel CSS Class field in *CompanyCarousel → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: CSS class for the carousel (e.g. glide1)
+   * - **API ID Path**: company_carousel.default.primary.carousel_class
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  carousel_class: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *CompanyCarousel → Items*
+ */
+export interface CompanyCarouselSliceDefaultItem {
+  /**
+   * Company Logo field in *CompanyCarousel → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: company_carousel.items[].company_logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  company_logo: prismic.ImageField<never>;
+
+  /**
+   * Company Name (alt text) field in *CompanyCarousel → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Company name for accessibility
+   * - **API ID Path**: company_carousel.items[].company_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  company_name: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for CompanyCarousel Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default Company Carousel
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CompanyCarouselSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CompanyCarouselSliceDefaultPrimary>,
+  Simplify<CompanyCarouselSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *CompanyCarousel*
+ */
+type CompanyCarouselSliceVariation = CompanyCarouselSliceDefault;
+
+/**
+ * CompanyCarousel Shared Slice
+ *
+ * - **API ID**: `company_carousel`
+ * - **Description**: Carousel displaying company logos with customizable title
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CompanyCarouselSlice = prismic.SharedSlice<
+  "company_carousel",
+  CompanyCarouselSliceVariation
 >;
 
 /**
@@ -4018,11 +4119,11 @@ export type ProcessSectionSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *FAQSection → Default → Primary*
+ * Primary content in *Question → Default → Primary*
  */
 export interface QuestionSliceDefaultPrimary {
   /**
-   * Title field in *FAQSection → Default → Primary*
+   * Title field in *Question → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Section title (default language)
@@ -4032,7 +4133,7 @@ export interface QuestionSliceDefaultPrimary {
   title: prismic.TitleField;
 
   /**
-   * Title (German) field in *FAQSection → Default → Primary*
+   * Title (German) field in *Question → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Section title in German
@@ -4042,7 +4143,7 @@ export interface QuestionSliceDefaultPrimary {
   title_de: prismic.TitleField;
 
   /**
-   * Title (English) field in *FAQSection → Default → Primary*
+   * Title (English) field in *Question → Default → Primary*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Section title in English
@@ -4052,7 +4153,7 @@ export interface QuestionSliceDefaultPrimary {
   title_en: prismic.TitleField;
 
   /**
-   * Description field in *FAQSection → Default → Primary*
+   * Description field in *Question → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Section description (default language)
@@ -4062,7 +4163,7 @@ export interface QuestionSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
-   * Description (German) field in *FAQSection → Default → Primary*
+   * Description (German) field in *Question → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Section description in German
@@ -4072,7 +4173,7 @@ export interface QuestionSliceDefaultPrimary {
   description_de: prismic.RichTextField;
 
   /**
-   * Description (English) field in *FAQSection → Default → Primary*
+   * Description (English) field in *Question → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Section description in English
@@ -4082,7 +4183,7 @@ export interface QuestionSliceDefaultPrimary {
   description_en: prismic.RichTextField;
 
   /**
-   * Fetch Questions field in *FAQSection → Default → Primary*
+   * Fetch Questions field in *Question → Default → Primary*
    *
    * - **Field Type**: Boolean
    * - **Placeholder**: Fetch questions from a separate content type instead of embedding them
@@ -4092,7 +4193,7 @@ export interface QuestionSliceDefaultPrimary {
   fetch_questions: prismic.BooleanField;
 
   /**
-   * FAQ Content Type field in *FAQSection → Default → Primary*
+   * FAQ Content Type field in *Question → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: The Prismic custom type ID to fetch FAQ questions from (e.g. 'faq_page')
@@ -4103,11 +4204,11 @@ export interface QuestionSliceDefaultPrimary {
 }
 
 /**
- * Primary content in *FAQSection → Items*
+ * Primary content in *Question → Items*
  */
 export interface QuestionSliceDefaultItem {
   /**
-   * Question field in *FAQSection → Items*
+   * Question field in *Question → Items*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Question text (default language)
@@ -4117,7 +4218,7 @@ export interface QuestionSliceDefaultItem {
   question: prismic.TitleField;
 
   /**
-   * Question (German) field in *FAQSection → Items*
+   * Question (German) field in *Question → Items*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Question text in German
@@ -4127,7 +4228,7 @@ export interface QuestionSliceDefaultItem {
   question_de: prismic.TitleField;
 
   /**
-   * Question (English) field in *FAQSection → Items*
+   * Question (English) field in *Question → Items*
    *
    * - **Field Type**: Title
    * - **Placeholder**: Question text in English
@@ -4137,7 +4238,7 @@ export interface QuestionSliceDefaultItem {
   question_en: prismic.TitleField;
 
   /**
-   * Answer field in *FAQSection → Items*
+   * Answer field in *Question → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Answer text (default language)
@@ -4147,7 +4248,7 @@ export interface QuestionSliceDefaultItem {
   answer: prismic.RichTextField;
 
   /**
-   * Answer (German) field in *FAQSection → Items*
+   * Answer (German) field in *Question → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Answer text in German
@@ -4157,7 +4258,7 @@ export interface QuestionSliceDefaultItem {
   answer_de: prismic.RichTextField;
 
   /**
-   * Answer (English) field in *FAQSection → Items*
+   * Answer (English) field in *Question → Items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: Answer text in English
@@ -4168,7 +4269,7 @@ export interface QuestionSliceDefaultItem {
 }
 
 /**
- * Default variation for FAQSection Slice
+ * Default variation for Question Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default FAQ Section
@@ -4181,12 +4282,12 @@ export type QuestionSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *FAQSection*
+ * Slice variation for *Question*
  */
 type QuestionSliceVariation = QuestionSliceDefault;
 
 /**
- * FAQSection Shared Slice
+ * Question Shared Slice
  *
  * - **API ID**: `question`
  * - **Description**: A section displaying a collection of frequently asked questions
@@ -6143,6 +6244,11 @@ declare module "@prismicio/client" {
       ChanceSectionSliceDefaultItem,
       ChanceSectionSliceVariation,
       ChanceSectionSliceDefault,
+      CompanyCarouselSlice,
+      CompanyCarouselSliceDefaultPrimary,
+      CompanyCarouselSliceDefaultItem,
+      CompanyCarouselSliceVariation,
+      CompanyCarouselSliceDefault,
       CustomerLogosSlice,
       CustomerLogosSliceDefaultPrimary,
       CustomerLogosSliceDefaultItem,

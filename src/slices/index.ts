@@ -9,6 +9,7 @@ export const components = {
   chance_section: dynamic(() => import("./ChanceSection")),
   customer_logos: dynamic(() => import("./CustomerLogos")),
   diversity_section: dynamic(() => import("./DiversitySection")),
+  company_carousel: dynamic(() => import("./CompanyCarousel")),
   faq_section: dynamic(() => import("./Faq")),
   feedback_section: dynamic(() => import("./FeedbackSection")),
   hero: dynamic(() => import("./Hero")),

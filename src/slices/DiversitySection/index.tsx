@@ -64,82 +64,82 @@ async function DiversitySectionSlice({ slice, context }: DiversitySectionSlicePr
     primary: {
       title: boxesTitleField
     },
-    items: boxes ? 
-      boxes.split(',').map((box: any) => ({ box_text: box.trim() })) : 
-      []
+    items: slice.primary.description_sections
   };
 
   return (
     <SectionBoxSlice slice={sectionBoxSlice as any}>
-      <div className="flex lg:flex-row flex-col gap-8 lg:gap-[36px]">
-        <div className="flex flex-1">
-          <div className="flex flex-1 flex-col lg:pr-9 gap-9 max-h-[581px]">
-            {images.length > 0 && (
-              <div className="flex-1 h-1/2">
-                <PrismicNextImage
-                  field={images[0].image}
-                  className="w-full h-1/2 rounded-[12px] flex-1 lg:rounded-[16px] object-cover object-left lg:object-bottom"
-                  fallbackAlt={images[0].image_alt || ""}
-                  imgixParams={{ fit: "crop" }}
-                  style={{ height: "100%" }}
-                />
+      <div className="flex-col flex gap-6 lg:gap-8">
+        <div className="flex lg:flex-row flex-col gap-8 lg:gap-[36px]">
+          <div className="flex flex-1">
+            <div className="flex flex-1 flex-col lg:pr-9 gap-9 max-h-[581px]">
+              {images.length > 0 && (
+                <div className="flex-1 h-1/2">
+                  <PrismicNextImage
+                    field={images[0].image}
+                    className="w-full h-1/2 rounded-[12px] flex-1 lg:rounded-[16px] object-cover object-left lg:object-bottom"
+                    fallbackAlt={images[0].image_alt || ""}
+                    imgixParams={{ fit: "crop" }}
+                    style={{ height: "100%" }}
+                  />
+                </div>
+              )}
+              <div className="hidden lg:flex lg:gap-2" style={{ height: "100%" }}>
+                {images.length > 1 && (
+                  <div className="flex flex-1">
+                    <div className="flex relative w-full">
+                      <PrismicNextImage
+                        field={images[1].image}
+                        className="w-full h-full rounded-[12px] lg:rounded-[16px] object-cover object-top"
+                        fallbackAlt={images[1].image_alt || ""}
+                        imgixParams={{ fit: "crop" }}
+                        style={{ height: "100%" }}
+                      />
+                    </div>
+                  </div>
+                )}
+                {images.length > 2 && (
+                  <div className="flex flex-1 pl-4">
+                    <div className="flex relative w-full">
+                      <PrismicNextImage
+                        field={images[2].image}
+                        className="w-full h-full rounded-[12px] lg:rounded-[16px] object-cover"
+                        fallbackAlt={images[2].image_alt || ""}
+                        imgixParams={{ fit: "crop" }}
+                        style={{ height: "100%" }}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-            <div className="hidden lg:flex lg:gap-2" style={{ height: "100%" }}>
-              {images.length > 1 && (
-                <div className="flex flex-1">
-                  <div className="flex relative w-full">
-                    <PrismicNextImage
-                      field={images[1].image}
-                      className="w-full h-full rounded-[12px] lg:rounded-[16px] object-cover object-top"
-                      fallbackAlt={images[1].image_alt || ""}
-                      imgixParams={{ fit: "crop" }}
-                      style={{ height: "100%" }}
-                    />
-                  </div>
-                </div>
-              )}
-              {images.length > 2 && (
-                <div className="flex flex-1 pl-4">
-                  <div className="flex relative w-full">
-                    <PrismicNextImage
-                      field={images[2].image}
-                      className="w-full h-full rounded-[12px] lg:rounded-[16px] object-cover"
-                      fallbackAlt={images[2].image_alt || ""}
-                      imgixParams={{ fit: "crop" }}
-                      style={{ height: "100%" }}
-                    />
-                  </div>
-                </div>
-              )}
             </div>
           </div>
-        </div>
-        <div className="flex-1 flex flex-col gap-10">
-          {descriptionSections.map((section: any, index: number) => {
-            // Get language-specific section content
-            const sectionTitle = isGerman
-              ? (isFilled.richText(section.description_title_de) ? section.description_title_de : section.description_title)
-              : (isFilled.richText(section.description_title_en) ? section.description_title_en : section.description_title);
+          <div className="flex-1 flex flex-col gap-10">
+            {descriptionSections.map((section: any, index: number) => {
+              // Get language-specific section content
+              const sectionTitle = isGerman
+                ? (isFilled.richText(section.description_title_de) ? section.description_title_de : section.description_title)
+                : (isFilled.richText(section.description_title_en) ? section.description_title_en : section.description_title);
+                
+              const sectionText = isGerman
+                ? (isFilled.richText(section.description_text_de) ? section.description_text_de : section.description_text)
+                : (isFilled.richText(section.description_text_en) ? section.description_text_en : section.description_text);
               
-            const sectionText = isGerman
-              ? (isFilled.richText(section.description_text_de) ? section.description_text_de : section.description_text)
-              : (isFilled.richText(section.description_text_en) ? section.description_text_en : section.description_text);
-            
-            return (
-              <div className="flex flex-col gap-2" key={index}>
-                <div>
-                  <PrismicRichText field={sectionTitle} />
+              return (
+                <div className="flex flex-col gap-2" key={index}>
+                  <div>
+                    <PrismicRichText field={sectionTitle} />
+                  </div>
+                  <div>
+                    <PrismicRichText field={sectionText} />
+                  </div>
                 </div>
-                <div>
-                  <PrismicRichText field={sectionText} />
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
+        <BoxesListSlice slice={boxesListSlice as any} />
       </div>
-      <BoxesListSlice slice={boxesListSlice as any} />
     </SectionBoxSlice>
   );
 }
